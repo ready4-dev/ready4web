@@ -3,6 +3,8 @@
 title: "Releases of module libraries"
 linkTitle: "Module libraries"
 weight: 20
+toc_hide: true
+hide_summary: true
 categories: 
 - Releases
 tags: 

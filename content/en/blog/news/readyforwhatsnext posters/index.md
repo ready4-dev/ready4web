@@ -2,6 +2,8 @@
 date: "2021-02-12"
 title: readyforwhatsnext - conference posters now available
 linkTitle: "Conference posters"
+toc_hide: true
+hide_summary: true
 description: Initial set of academic posters relating to the development of the readyforwhatsnext model.
 author: Matthew Hamilton ([Website](https://mph-economist.netlify.app)) 
 aliases: /post/rfwn-posters/

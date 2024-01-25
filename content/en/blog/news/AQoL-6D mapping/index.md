@@ -2,6 +2,8 @@
 date: "2021-07-14"
 title: Predicting Quality Adjusted Life Years in young people attending primary mental health services
 linkTitle: "Predicting AQoL-6D"
+toc_hide: true
+hide_summary: true
 description: Applying Spring To Life model modules to map psychological and functional measures to AQoL-6D health utility
 author: Matthew Hamilton ([Website](https://mph-economist.netlify.app)) 
 aliases: /post/insights_ttu_aqol6d/

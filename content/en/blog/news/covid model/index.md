@@ -2,6 +2,8 @@
 date: "2021-02-18"
 title: Modelling the mental health impacts of COVID-19
 linkTitle: "Predicting COVID-19 impacts"
+toc_hide: true
+hide_summary: true
 description: Applying the Springtides model to predict the potential mental health burden of COVID-19.
 author: Matthew Hamilton ([Website](https://mph-economist.netlify.app)) 
 aliases: /post/insights_springtides/

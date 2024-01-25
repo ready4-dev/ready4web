@@ -2,6 +2,8 @@
 title: "Synthetic (fake) datasets releases"
 linkTitle: "Fake datasets"
 date: "2023-11-30"
+toc_hide: true
+hide_summary: true
 description: "Releases of synthetic (fake) datasets used for teaching and demonstration."
 weight: 700
 categories: 

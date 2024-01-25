@@ -2,6 +2,8 @@
 ---
 title: "Model datasets releases"
 linkTitle: "Model data"
+toc_hide: true
+hide_summary: true
 weight: 3
 ---
 

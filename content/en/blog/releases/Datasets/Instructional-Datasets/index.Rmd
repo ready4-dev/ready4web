@@ -3,6 +3,8 @@ title: "Synthetic (fake) datasets releases"
 linkTitle: "Fake datasets"
 date: "`r Sys.Date()`"
 description: "Releases of synthetic (fake) datasets used for teaching and demonstration."
+toc_hide: true
+hide_summary: true
 weight: 700
 categories: 
 - Releases
