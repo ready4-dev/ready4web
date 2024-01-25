@@ -6,6 +6,8 @@ date: "2023-11-30"
 description: To implement a modelling analysis with ready4 you need to install computational model modules.
 slug: Modules
 weight: 3
+toc_hide: true
+hide_summary: true
 categories: 
 - Documentation
 tags: 

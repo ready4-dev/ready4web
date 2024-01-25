@@ -2,6 +2,8 @@
 title: "Executables"
 linkTitle: "Executables"
 weight: 264
+toc_hide: true
+hide_summary: true
 categories: 
 - Documentation
 tags: 

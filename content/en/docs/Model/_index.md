@@ -4,6 +4,8 @@ title: "Model"
 linkTitle: "Model"
 date: 2017-01-05
 weight: 66
+toc_hide: true
+hide_summary: true
 categories: 
 - Documentation
 tags: 

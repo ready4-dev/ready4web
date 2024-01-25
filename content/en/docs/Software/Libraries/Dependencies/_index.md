@@ -2,6 +2,8 @@
 title: "Dependencies"
 linkTitle: "Dependencies"
 weight: 267
+toc_hide: true
+hide_summary: true
 tags:
 - Software
 - Software - apps

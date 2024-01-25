@@ -2,6 +2,8 @@
 title: "Contributions"
 linkTitle: "Contributions"
 weight: 110
+toc_hide: true
+hide_summary: true
 tags:
 - Project
 - Project - contributions
