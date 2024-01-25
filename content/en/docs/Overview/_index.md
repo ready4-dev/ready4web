@@ -29,7 +29,7 @@ We hope that ready4 will help to [share data](/docs/model/datasets), improve the
 ready4 is designed to be primarily used by [coders](/docs/getting-started/users/coder) and [modellers](/docs/getting-started/users/modeller) working collaboratively on [computational modelling projects](/docs/getting-started/concepts/project/) in which other stakeholders such as [funders](/docs/getting-started/stakeholders/funders/) and [researchers](/docs/getting-started/stakeholders/researchers/) make essential contributions. 
 
 ## What is it being used for?
-Currently, ready4 is being applied to develop and apply [a modular model of youth mental health](https://readyforwhatsnext.netlify.app/).
+Currently, ready4 is being applied to develop and apply [a modular model of youth mental health](https://readyforwhatsnext.org/).
 
 ## Can I use it?
 ready4 is publicly available and free for you to assess (to verify and validate), apply (to use and/or author health economic model modules) and to derive your own derivative works from (to leverage and enhance the work of others) [under liberal terms of use](/docs/software/terms/).
