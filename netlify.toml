@@ -13,3 +13,4 @@
 from = "/docs/model"
 to = "https://readyforwhatsnext.org/"
 status = 301
+force = true
