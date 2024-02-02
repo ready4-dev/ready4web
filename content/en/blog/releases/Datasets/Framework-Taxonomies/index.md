@@ -1,6 +1,6 @@
 ---
 title: "Framework taxonomies dataset releases"
-linkTitle: "Framework data"
+linkTitle: "Taxonomies"
 date: "2023-11-30"
 description: "Releases of the dataset of taxonomies used to help standardise code authoring and documentation."
 weight: 2
