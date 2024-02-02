@@ -111,7 +111,6 @@ to = "https://readyforwhatsnext.org/docs/model/modules/finding/libraries/"
 status = 301
 force = true
  
-
 [[redirects]]
 from = "/docs/software/user-interfaces/"
 to = "https://readyforwhatsnext.org/docs/model/decision-aids/"
