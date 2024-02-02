@@ -94,6 +94,12 @@ status = 301
 force = true
 
 [[redirects]]
+from = "/docs/software/executables/"
+to = "https://readyforwhatsnext.org/docs/model/analyses/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/docs/software/executables/programs/"
 to = "https://readyforwhatsnext.org/docs/model/analyses/find/"
 status = 301
