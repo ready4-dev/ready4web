@@ -21,3 +21,8 @@ to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
 status = 301
 force = true
 
+[[redirects]]
+from = "/blog/releases/libraries/module-libraries/*"
+to = "https://readyforwhatsnext.org/blog/releases/libraries/:splat"
+status = 301
+force = true
