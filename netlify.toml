@@ -10,19 +10,170 @@
   command = "hugo --baseURL $DEPLOY_PRIME_URL"
   
 [[redirects]]
-from = "/docs/model"
-to = "https://readyforwhatsnext.org/"
-status = 301
-force = true
-
-[[redirects]]
 from = "/blog/2023/11/30/posters-dataset-releases/"
 to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
 status = 301
 force = true
 
 [[redirects]]
-from = "/blog/releases/libraries/module-libraries/*"
-to = "https://readyforwhatsnext.org/blog/releases/libraries/:splat"
+from = "https://readyforwhatsnext.org/blog/2024/01/25/places-module-library-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/places-module-library-releases/"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://readyforwhatsnext.org/blog/2024/01/25/people-module-library-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/people-module-library-releases/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/libraries/module-libraries/module-libraries/"
+to = "https://readyforwhatsnext.org/blog/releases/libraries/
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/executables/" 
+to = "https://readyforwhatsnext.org/blog/releases/executables/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/subroutine-releases/" 
+to = "https://readyforwhatsnext.org/blog/2024/01/25/subroutine-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/programs-releases/" 
+to = "https://readyforwhatsnext.org/blog/2024/01/25/programs-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/instructional-datasets/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/toy-synthetic-datasets-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/model-data/"
+to = "https://readyforwhatsnext.org/blog/releases/datasets/model-data/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/datasets-for-modelling-places-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-places-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/datasets-for-modelling-people-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-people-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/posters-datasets/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.ready4-dev.com/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/"
+to = "https://readyforwhatsnext.org/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.ready4-dev.com/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/"
+to = "https://readyforwhatsnext.org/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.ready4-dev.com/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/"
+to = "https://readyforwhatsnext.org/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/" #update
+status = 301
+force = true
+
+[[redirects]]
+from = "/docs/contribution-guidelines/*"
+to = "https://readyforwhatsnext.org/docs/contribution-guidelines/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/docs/software/executables/programs/"
+to = "https://readyforwhatsnext.org/docs/model/analyses/find/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/docs/software/executables/subroutines/"
+to = "https://readyforwhatsnext.org/docs/model/reporting/"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/software/libraries/types/module/"
+to = "https://readyforwhatsnext.org/docs/model/modules/finding/libraries/"
+status = 301
+force = true
+ 
+
+[[redirects]]
+from = "/docs/software/user-interfaces/"
+to = "https://readyforwhatsnext.org/docs/model/decision-aids/"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model"
+to = "https://readyforwhatsnext.org/docs/model/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/docs/model/analyses/"
+to = "https://readyforwhatsnext.org/docs/model/analyses/"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/analyses/decision-aids/*"
+to = "https://readyforwhatsnext.org/docs/model/decision-aids/:splat"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/analyses/replication-code/*"
+to = "https://readyforwhatsnext.org/docs/model/analyses/replication-code/:splat"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/analyses/reporting-templates/"
+to = "https://readyforwhatsnext.org/docs/model/reporting/"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/datasets/*"
+to = "https://readyforwhatsnext.org/docs/model/datasets/:splat"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/modules/finding-modules/"
+to = "https://readyforwhatsnext.org/docs/model/modules/finding/individual/"
+status = 301
+force = true
+ 
+[[redirects]]
+from = "/docs/model/modules/*"
+to = "https://readyforwhatsnext.org/docs/model/modules/:splat"
 status = 301
 force = true

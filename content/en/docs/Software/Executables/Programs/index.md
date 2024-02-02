@@ -1,17 +1,5 @@
 ---
-title: "Programs"
-linkTitle: "Programs"
-date: "2023-11-30"
-description: "Programs are used to generate and report a model analysis."
-weight: 3
-categories: 
-- Documentation
-tags: 
-- Software
-- Software - executable
-- Software - executable (programs)
-output: hugodown::md_document
-rmd_hash: 0a86ce1726185546
+rmd_hash: 42636315e90ae44a
 
 ---
 
@@ -24,7 +12,7 @@ Programs can be executed in their current form without the need for additional i
 ready4 programs can be used for the following purposes:
 
 -   to [reproduce](/docs/getting-started/concepts/reproducible-replicable-generalisable/) a study analysis, in which case you will need access to the original study data, and may also need to modify the program to specify the path to this data from your machine;
--   to replicate a study analysis (ie to apply the study algorithm to similar but different input data \[this can be a new sample from the same population or, if used for demonstration purposes, fake data representative of the original study dataset\]), in which case you will need to modify the program to specify the path to this data; and
+-   to replicate a study analysis (ie to apply the study algorithm to similar but different input data $$this can be a new sample from the same population or, if used for demonstration purposes, fake data representative of the original study dataset$$), in which case you will need to modify the program to specify the path to this data; and
 -   to [transfer](/docs/getting-started/concepts/transferable/) a study analysis, in which case you use the program as a template to be modified to reflect key differences between the original study and your study.
 
 ## Current ready4 programs
@@ -32,22 +20,11 @@ ready4 programs can be used for the following purposes:
 Currently available ready4 programs are summarised in the below table.
 
 <html>
-
-
 <body>
-
-
-
-
-
 
 <div id="header">
 
-
-
-
 </div>
-
 
 <table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -81,13 +58,10 @@ aqol6dmap_fakes
 02-Mar-2022
 </td>
 <td style="text-align:left;">
-This program generates a purely synthetic (i.e. fake - no trace of any
-real records) population that is reasonably representative of the input
-data we used for the utility mapping study described in the article <a href="https://doi.org/10.1101/2021.07.07.21260129" class="uri">https://doi.org/10.1101/2021.07.07.21260129</a>.
+This program generates a purely synthetic (i.e. fake - no trace of any real records) population that is reasonably representative of the input data we used for the utility mapping study described in the article <a href="https://doi.org/10.1101/2021.07.07.21260129" class="uri">https://doi.org/10.1101/2021.07.07.21260129</a>.
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/ready4-dev/aqol6dmap_fakes" style="     ">Dev</a>,
-<a href="https://doi.org/10.5281/zenodo.6321821" style="     ">Archive</a>
+<a href="https://github.com/ready4-dev/aqol6dmap_fakes" style="     ">Dev</a>, <a href="https://doi.org/10.5281/zenodo.6321821" style="     ">Archive</a>
 </td>
 </tr>
 <tr>
@@ -101,12 +75,10 @@ aqol6dmap_use
 13-Sep-2022
 </td>
 <td style="text-align:left;">
-Apply AQoL-6D Utility Mapping Models To New DataThis release includes
-minor formatting change and an updated version number.
+Apply AQoL-6D Utility Mapping Models To New DataThis release includes minor formatting change and an updated version number.
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/ready4-dev/aqol6dmap_use" style="     ">Dev</a>,
-<a href="https://doi.org/10.5281/zenodo.7073433" style="     ">Archive</a>
+<a href="https://github.com/ready4-dev/aqol6dmap_use" style="     ">Dev</a>, <a href="https://doi.org/10.5281/zenodo.7073433" style="     ">Archive</a>
 </td>
 </tr>
 <tr>
@@ -120,13 +92,10 @@ dce_sa_analysis
 27-Oct-2022
 </td>
 <td style="text-align:left;">
-A self-documenting R Markdown program for analysing responses to a
-discrete choice experiment exploring the online help-seeking preferences
-of socially anxious young people.
+A self-documenting R Markdown program for analysing responses to a discrete choice experiment exploring the online help-seeking preferences of socially anxious young people.
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/ready4-dev/dce_sa_analysis" style="     ">Dev</a>,
-<a href="https://doi.org/10.5281/zenodo.7259735" style="     ">Archive</a>
+<a href="https://github.com/ready4-dev/dce_sa_analysis" style="     ">Dev</a>, <a href="https://doi.org/10.5281/zenodo.7259735" style="     ">Archive</a>
 </td>
 </tr>
 <tr>
@@ -140,14 +109,10 @@ dce_sa_design
 26-Oct-2022
 </td>
 <td style="text-align:left;">
-An R Markdown program to create the experimental design for a Discrete
-Choice Experiment (DCE) exploring online help seeking in socially
-anxious young people.This release uses functions from the mychoice R
-package (<a href="https://github.com/ready4-dev/mychoice" class="uri">https://github.com/ready4-dev/mychoice</a>).
+An R Markdown program to create the experimental design for a Discrete Choice Experiment (DCE) exploring online help seeking in socially anxious young people.This release uses functions from the mychoice R package (<a href="https://github.com/ready4-dev/mychoice" class="uri">https://github.com/ready4-dev/mychoice</a>).
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/ready4-dev/dce_sa_design" style="     ">Dev</a>,
-<a href="https://doi.org/10.5281/zenodo.7252203" style="     ">Archive</a>
+<a href="https://github.com/ready4-dev/dce_sa_design" style="     ">Dev</a>, <a href="https://doi.org/10.5281/zenodo.7252203" style="     ">Archive</a>
 </td>
 </tr>
 <tr>
@@ -161,22 +126,14 @@ ttu_lng_aqol6_csp
 16-Sep-2022
 </td>
 <td style="text-align:left;">
-Complete study program to reproduce all steps from data ingest through
-to results dissemination for a study to map mental health measures to
-AQoL-6D health utility.
+Complete study program to reproduce all steps from data ingest through to results dissemination for a study to map mental health measures to AQoL-6D health utility.
 </td>
 <td style="text-align:left;">
-<a href="https://github.com/ready4-dev/ttu_lng_aqol6_csp" style="     ">Dev</a>,
-<a href="https://doi.org/10.5281/zenodo.7073428" style="     ">Archive</a>
+<a href="https://github.com/ready4-dev/ttu_lng_aqol6_csp" style="     ">Dev</a>, <a href="https://doi.org/10.5281/zenodo.7073428" style="     ">Archive</a>
 </td>
 </tr>
 </tbody>
 </table>
-
-
-
-
-
 <script>
 
 // add bootstrap table styles to pandoc tables
@@ -189,9 +146,7 @@ $(document).ready(function () {
 
 
 </script>
-
 <!-- tabsets -->
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
@@ -203,10 +158,7 @@ $(document).ready(function () {
   });
 });
 </script>
-
 <!-- code folding -->
-
-
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
@@ -216,7 +168,6 @@ $(document).ready(function () {
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
-
 </body>
 </html>
 
