@@ -2,6 +2,8 @@
 title: "Stakeholders"
 linkTitle: "Stakeholders"
 weight: 25
+toc_hide: true
+hide_summary: true
 categories: 
 - Documentation
 tags:

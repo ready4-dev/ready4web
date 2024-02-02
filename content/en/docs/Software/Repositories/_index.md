@@ -1,7 +1,7 @@
 ---
 title: "Code repositories"
-linkTitle: "Repositories"
-weight: 261
+linkTitle: "Availability"
+weight: 1
 tags:
 - Repositories
 - Repositories - code

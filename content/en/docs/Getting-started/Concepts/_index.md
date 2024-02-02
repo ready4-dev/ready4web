@@ -1,7 +1,7 @@
 ---
 title: "Concepts"
 linkTitle: "Concepts"
-weight: 22
+weight: 1
 categories: 
 - Documentation
 tags:
