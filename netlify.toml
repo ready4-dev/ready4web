@@ -15,18 +15,6 @@ to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
 status = 301
 force = true
 
-#[[redirects]]
-#from = "https://readyforwhatsnext.org/blog/2024/01/25/places-module-library-releases/"
-#to = "https://readyforwhatsnext.org/blog/2024/01/25/places-module-library-releases/"
-#status = 301
-#force = true
-
-#[[redirects]]
-#from = "https://readyforwhatsnext.org/blog/2024/01/25/people-module-library-releases/"
-#to = "https://readyforwhatsnext.org/blog/2024/01/25/people-module-library-releases/"
-#status = 301
-#force = true
-
 [[redirects]]
 from = "/blog/releases/libraries/module-libraries/module-libraries/"
 to = "https://readyforwhatsnext.org/blog/releases/libraries/
