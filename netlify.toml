@@ -14,3 +14,10 @@ from = "/docs/model"
 to = "https://readyforwhatsnext.org/"
 status = 301
 force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/posters-dataset-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
+status = 301
+force = true
+
