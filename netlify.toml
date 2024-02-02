@@ -8,6 +8,84 @@
 
 [context.deploy-preview.environment]
   command = "hugo --baseURL $DEPLOY_PRIME_URL"
+
+[[redirects]]
+from = "/blog/2023/11/30/posters-dataset-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/libraries/module-libraries/module-libraries/"
+to = "https://readyforwhatsnext.org/blog/releases/libraries/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/executables/" 
+to = "https://readyforwhatsnext.org/blog/releases/executables/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/subroutine-releases/" 
+to = "https://readyforwhatsnext.org/blog/2024/01/25/subroutine-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/programs-releases/" 
+to = "https://readyforwhatsnext.org/blog/2024/01/25/programs-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/instructional-datasets/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/toy-synthetic-datasets-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/model-data/"
+to = "https://readyforwhatsnext.org/blog/releases/datasets/model-data/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/datasets-for-modelling-places-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-places-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2023/11/30/datasets-for-modelling-people-releases/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-people-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/releases/datasets/posters-datasets/"
+to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/"
+to = "https://readyforwhatsnext.org/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/"
+to = "https://readyforwhatsnext.org/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/" 
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/"
+to = "https://readyforwhatsnext.org/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/" 
+status = 301
+force = true
   
 [[redirects]]
 from = "/docs/contribution-guidelines/*"
