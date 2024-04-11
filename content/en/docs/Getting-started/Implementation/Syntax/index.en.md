@@ -1,7 +1,7 @@
 ---
 title: "Syntax"
 linkTitle: "Syntax"
-date: "2024-02-02"
+date: "2024-04-11"
 description: "ready4 modules use a simple and consistent syntax."
 weight: 63
 aliases:
@@ -78,7 +78,7 @@ A table that summarises the latest `ready4` syntax can be ingested from a period
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -109,7 +109,7 @@ Author and save files
 <a href="https://ready4-dev.github.io/ready4/reference/characterize-methods.html"> characterize </a>
 </td>
 <td style="text-align:left;">
-Characterize data by generating (tabular) descriptive statistics
+Characterize model module data by generating (tabular) descriptive statistics
 </td>
 <td style="text-align:left;">
 </td>
@@ -119,7 +119,7 @@ Characterize data by generating (tabular) descriptive statistics
 <a href="https://ready4-dev.github.io/ready4/reference/depict-methods.html"> depict </a>
 </td>
 <td style="text-align:left;">
-Depict (plot) features of a dataset
+Depict (plot) features of model module data
 </td>
 <td style="text-align:left;">
 <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a>
@@ -130,7 +130,7 @@ Depict (plot) features of a dataset
 <a href="https://ready4-dev.github.io/ready4/reference/enhance-methods.html"> enhance </a>
 </td>
 <td style="text-align:left;">
-Enhance a dataset by adding new elements
+Enhance a model module by adding new elements
 </td>
 <td style="text-align:left;">
 </td>
@@ -140,10 +140,10 @@ Enhance a dataset by adding new elements
 <a href="https://ready4-dev.github.io/ready4/reference/exhibit-methods.html"> exhibit </a>
 </td>
 <td style="text-align:left;">
-Exhibit features of a dataset by printing them to the R console
+Exhibit features of model module data by printing them to the R console
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+<a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/youthu/articles/V_01.html" style="     ">18</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
 </td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@ Exhibit features of a dataset by printing them to the R console
 Ingest data
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_03.html" style="     ">3</a> , <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_03.html" style="     ">3</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/youthu/articles/V_01.html" style="     ">18</a>
 </td>
 </tr>
 <tr>
@@ -183,7 +183,7 @@ Manufacture a new object
 <a href="https://ready4-dev.github.io/ready4/reference/metamorphose-methods.html"> metamorphose </a>
 </td>
 <td style="text-align:left;">
-Metamorphose data from one model module (or sub-module) instance to an instance of a different model module or sub-module
+Metamorphose a model module to a model module of a different (non-inheriting) class
 </td>
 <td style="text-align:left;">
 <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
@@ -197,7 +197,7 @@ Metamorphose data from one model module (or sub-module) instance to an instance 
 Procure items from a dataset
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+<a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
 </td>
 </tr>
 <tr>
@@ -215,7 +215,7 @@ Prognosticate (make predictions) by solving a forward problem
 <a href="https://ready4-dev.github.io/ready4/reference/ratify-methods.html"> ratify </a>
 </td>
 <td style="text-align:left;">
-Ratify that a dataset meets validity criteria
+Ratify that input or output data meet validity criteria
 </td>
 <td style="text-align:left;">
 <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
@@ -236,10 +236,10 @@ Reckon (calculate) a value
 <a href="https://ready4-dev.github.io/ready4/reference/renew-methods.html"> renew </a>
 </td>
 <td style="text-align:left;">
-Renew values in a dataset
+Renew (update) values
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
 </td>
 </tr>
 <tr>
@@ -279,7 +279,7 @@ A HTML table of the slot generics bundled with `ready4` can be displayed using t
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -393,7 +393,7 @@ Apply the metamorphose method to a model module slot
 Procure (get) data from a slot
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/ready4/articles/V_01.html" style="     ">8</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
 </td>
 </tr>
 <tr>
@@ -434,7 +434,7 @@ Apply the reckon method to a model module slot
 Apply the renew method to a model module slot
 </td>
 <td style="text-align:left;">
-<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/ready4/articles/V_01.html" style="     ">8</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
 </td>
 </tr>
 <tr>
@@ -468,7 +468,7 @@ Finally, there are a small number of other generics that are more general extens
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">

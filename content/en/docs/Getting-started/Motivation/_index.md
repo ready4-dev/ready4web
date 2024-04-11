@@ -8,7 +8,7 @@ tags:
 - Project
 - Project - purpose
 description: >
-  To be [transparent, reusable and updatable](/docs/framework/standards/), ready4 is being implemented as a [modular](/docs/getting-started/concepts/module/) and [open source](/docs/software/terms/licenses/) [computational model](/docs/getting-started/concepts/model/#computational-model).
+  To support the development of [replicable](/docs/getting-started/concepts/reproducible-replicable-generalisable/) and [transferable](/docs/getting-started/concepts/transferable/) health economic models ready4 provides a framework for implementing [modular](/docs/getting-started/concepts/module/) and [open source](/docs/software/terms/licenses/) projects.
 ---
 
 ## Problem

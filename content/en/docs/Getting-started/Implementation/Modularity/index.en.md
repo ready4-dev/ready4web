@@ -1,7 +1,7 @@
 ---
 title: "Modularity"
 linkTitle: "Modularity"
-date: "2024-02-02"
+date: "2024-04-11"
 description: "ready4 supports a modular approach to computational model development."
 weight: 62
 aliases:
@@ -130,9 +130,8 @@ All methods associated with modules and sub-modules adopt [a common syntax](http
 <div class="highlight">
 
 <pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_methods.html'>get_methods</a></span><span class='o'>(</span><span class='o'>)</span></span>
-<span><span class='c'>#&gt;  [1] "authorSlot"        "characterizeSlot"  "depictSlot"        "enhanceSlot"       "exhibitSlot"       "ingestSlot"       </span></span>
-<span><span class='c'>#&gt;  [7] "investigateSlot"   "manufactureSlot"   "metamorphoseSlot"  "procureSlot"       "prognosticateSlot" "ratifySlot"       </span></span>
-<span><span class='c'>#&gt; [13] "reckonSlot"        "renewSlot"         "shareSlot"</span></span>
+<span><span class='c'>#&gt;  [1] "authorSlot"        "characterizeSlot"  "depictSlot"        "enhanceSlot"       "exhibitSlot"       "ingestSlot"        "investigateSlot"   "manufactureSlot"   "metamorphoseSlot"  "procureSlot"      </span></span>
+<span><span class='c'>#&gt; [11] "prognosticateSlot" "ratifySlot"        "reckonSlot"        "renewSlot"         "shareSlot"</span></span>
 <span></span></code></pre>
 
 </div>

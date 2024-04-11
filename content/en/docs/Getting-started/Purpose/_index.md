@@ -11,10 +11,10 @@ categories:
 tags: 
 - Framework
 description: >
-  The ready4 prototype software framework supports [computational health economic model](/docs/getting-started/concepts/model/) implementation that meet explicit transparency, reusability and updatability criteria.
+  The ready4 prototype software framework supports model implementations that meet explicit transparency, reusability and updatability criteria.
 ---
 
-Transparent, reusable and updatable (TRU) computational health economic models are signifiers of [ethical modelling practice](https://arxiv.org/pdf/2310.14138.pdf). The ready4 software framework provides tools to help implement TRU models.
+Transparent, reusable and updatable (TRU) computational health economic models are signifiers of ethical modelling practice. The ready4 software framework provides tools to help implement TRU models (see [this preprint](https://arxiv.org/pdf/2403.17798.pdf) for a detailed description).
 
 ## Transparent
 Model code and data are publicly available in online [code repositories](/docs/software/repositories/) and [data collections](/docs/model/datasets/finding-data/search/). Algorithms are [documented and transparently and regularly tested](/docs/software/libraries/documentation/). Model development occurs [in the open](https://github.com/ready4-dev) and [invites community participation](/docs/contribution-guidelines/contribution-types/code/), with each individual's [contribution](/docs/contribution-guidelines/) publicly identifiable. [Analyses](/docs/model/analyses/) are [reproducible and replicable](/docs/getting-started/concepts/reproducible-replicable-generalisable/#reproduction-and-replication).
