@@ -1,7 +1,7 @@
 ---
 title: "Framework taxonomies dataset releases"
 linkTitle: "Taxonomies"
-date: "2023-11-30"
+date: "2024-04-17"
 description: "Releases of the dataset of taxonomies used to help standardise code authoring and documentation."
 weight: 2
 categories: 
@@ -13,7 +13,7 @@ tags:
 - Framework - conventions
 - Framework - conventions (taxonomies)
 output: hugodown::md_document
-rmd_hash: 65f96fb577437236
+rmd_hash: 5b12034b084968ab
 
 ---
 
@@ -37,7 +37,7 @@ Releases of the [datasets](/docs/model/datasets/) of the taxonomies that support
 </div>
 
 
-<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<table class="table table-striped" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">

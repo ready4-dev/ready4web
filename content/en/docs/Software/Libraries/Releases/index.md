@@ -1,7 +1,7 @@
 ---
 title: "Finding framework libraries"
 linkTitle: "Finding"
-date: "2024-02-02"
+date: "2024-04-17"
 description: "There are two types of framework libraries - a foundational library and libraries of authoring tools."
 aliases:
 - /docs/software/libraries/types
@@ -18,7 +18,7 @@ tags:
 - Status
 - Status - development
 output: hugodown::md_document
-rmd_hash: b724d69bff5c2438
+rmd_hash: a4ae48b3c0843496
 
 ---
 
@@ -50,7 +50,7 @@ Currently available framework libraries are summarised below.
 </div>
 
 
-<table class="table table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">

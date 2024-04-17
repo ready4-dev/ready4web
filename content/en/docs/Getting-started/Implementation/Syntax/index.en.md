@@ -1,7 +1,7 @@
 ---
 title: "Syntax"
 linkTitle: "Syntax"
-date: "2024-04-11"
+date: "2024-04-17"
 description: "ready4 modules use a simple and consistent syntax."
 weight: 63
 aliases:
@@ -45,7 +45,7 @@ html_dependencies:
 
 ## Motivation
 
-Transparency is one of the underpinning principles of ethical modelling practice. One way to improve the transparency of computational health economic models (such as those we are developing [in youth mental health](https://www.ready4-dev.com/docs/model/)) is to ensure that the [programs implementing model analyses](https://www.ready4-dev.com/docs/model/analyses/) can be meaningfully inspected by readers with different levels of technical expertise. Even non-technical readers should be able to follow the high-level logic implemented by model algorithms. If multiple analysis programs are written using a common simplified syntax then reviewers of those programs need to contend with relatively fewer new concepts.
+Transparency is one of the underpinning principles of ethical modelling practice. One way to improve the transparency of computational health economic models (such as those we are developing [in youth mental health](https://readyforwhatsnext.org)) is to ensure that the [programs implementing model analyses](https://readyforwhatsnext.org/docs/model/analyses/) can be meaningfully inspected by readers with different levels of technical expertise. Even non-technical readers should be able to follow the high-level logic implemented by model algorithms. If multiple analysis programs are written using a common simplified syntax then reviewers of those programs need to contend with relatively fewer new concepts.
 
 ## Implementation
 
@@ -67,7 +67,7 @@ A table that summarises the latest `ready4` syntax can be ingested from a period
 
 #### Core generics
 
-`ready4` includes a number of core generic functions which describe the main types of method to be implemented by model modules. Notably, the `ready4` package does not associate methods with any of these core generics. Instead, methods are associated with these generics in [R packages of model modules](https://www.ready4-dev.com/docs/software/libraries/types/module/). A HTML table of `ready4`'s core generics and examples of methods associated with each generic can be displayed using the `print_methods` function, using the `return_1L_chr = "core"` argument.
+`ready4` includes a number of core generic functions which describe the main types of method to be implemented by model modules. Notably, the `ready4` package does not associate methods with any of these core generics. Instead, methods are associated with these generics in [R packages of model modules](https://readyforwhatsnext.org/docs/tutorials/finding/libraries/). A HTML table of `ready4`'s core generics and examples of methods associated with each generic can be displayed using the `print_methods` function, using the `return_1L_chr = "core"` argument.
 
 <div class="highlight">
 

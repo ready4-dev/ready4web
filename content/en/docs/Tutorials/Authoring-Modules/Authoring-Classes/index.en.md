@@ -1,7 +1,7 @@
 ---
 title: "Authoring model data structures"
 linkTitle: "Data structures"
-date: "2024-02-02"
+date: "2024-04-17"
 description: "The ready4class R package supports partially automated and standardised workflows for defining the data structures to be used in computational models."
 weight: 62
 aliases:
@@ -70,7 +70,7 @@ The main classes exported as part of `ready4class` are `readyclass_manifest` and
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class=" lightable-paper lightable-hover lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
 <caption>
 Class Prototypes Lookup Table
 </caption>
