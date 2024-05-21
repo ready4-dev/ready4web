@@ -1,6 +1,6 @@
 ---
-title: "Getting started"
-linkTitle: "Getting started"
+title: "Before you get started"
+linkTitle: "Background"
 weight: 20
 aliases:
 - /docs/framework

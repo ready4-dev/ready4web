@@ -20,7 +20,7 @@ description: >
   See how ready4 has been applied to [model](https://readyforwhatsnext.org/) real world decision problems in youth mental health.
 ---
 
-An scientific summary of the ready4 prototype software framework and its early application in youth mental health is [available as a pre-print manuscript](https://arxiv.org/abs/2310.14138).
+An scientific summary of the ready4 prototype software framework and its early application in youth mental health is [available as an open-access article in PharmacoEconomics]( https://doi.org/10.1007/s40273-024-01378-8).
 
 Additional information is available from the project website of [readyforwhatsnext - a modular and open source economic model of youth mental health](https://readyforwhatsnext.org/).
 
