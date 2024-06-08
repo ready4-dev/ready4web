@@ -1,7 +1,7 @@
 ---
 title: "Syntax"
 linkTitle: "Syntax"
-date: "2024-04-17"
+date: "2024-06-08"
 description: "ready4 modules use a simple and consistent syntax."
 weight: 63
 aliases:
@@ -45,15 +45,15 @@ html_dependencies:
 
 ## Motivation
 
-Transparency is one of the underpinning principles of ethical modelling practice. One way to improve the transparency of computational health economic models (such as those we are developing [in youth mental health](https://readyforwhatsnext.org)) is to ensure that the [programs implementing model analyses](https://readyforwhatsnext.org/docs/model/analyses/) can be meaningfully inspected by readers with different levels of technical expertise. Even non-technical readers should be able to follow the high-level logic implemented by model algorithms. If multiple analysis programs are written using a common simplified syntax then reviewers of those programs need to contend with relatively fewer new concepts.
+To be used in health economic analyses, model modules need to be called using a programming syntax. Ideally that syntax should be relatively simple, with the name and description of each command reliably communicating the category of operations it performs.
 
 ## Implementation
 
-`ready4` provides a simple syntax that can be consistently applied to attach algorithms (methods) to [model modules](https://www.ready4-dev.com/docs/framework/implementation/modularity/). It does so by taking advantage of the [abstraction and polymorphism features of Object Oriented Programing](https://www.ready4-dev.com/docs/framework/implementation/paradigm/object-oriented/#transparent-computational-models) and R's use of generic functions. Generic functions don't implement algorithms themselves - their most salient features are a name and a high level description of the type of task that any method associated with that generic should perform. Whenever a developer creates a method for [classes that use R's S4 and S3 systems (the types used for model modules and sub-modules)](https://www.ready4-dev.com/docs/framework/implementation/modularity/#implementation), they can associate that method with the generic that has a description that is the best match for the algorithm being implemented.
+`ready4` provides a simple syntax that is used by all model modules developed with the [`ready4` framework](https://www.ready4-dev.com/).
 
-### Available generics
+## Use
 
-A table that summarises the latest `ready4` syntax can be ingested from a periodically updated database using `get_methods_tb`.
+A table that itemises `ready4` commands along with examples of how these commands are used can be ingested from a periodically updated database using `get_methods_tb`. In the below example we will search for examples of where that syntax has been used by modules from the [readyforwhatsnext model](https://readyforwhatsnext.org/). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
 
 <div class="highlight">
 
@@ -61,13 +61,13 @@ A table that summarises the latest `ready4` syntax can be ingested from a period
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>x</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_methods_tb.html'>get_methods_tb</a></span><span class='o'>(</span><span class='o'>)</span></span></code></pre>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>x</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_methods_tb.html'>get_methods_tb</a></span><span class='o'>(</span>gh_repo_1L_chr <span class='o'>=</span> <span class='s'>"ready4-dev/ready4"</span><span class='o'>)</span></span></code></pre>
 
 </div>
 
-#### Core generics
+### Core commands
 
-`ready4` includes a number of core generic functions which describe the main types of method to be implemented by model modules. Notably, the `ready4` package does not associate methods with any of these core generics. Instead, methods are associated with these generics in [R packages of model modules](https://readyforwhatsnext.org/docs/tutorials/finding/libraries/). A HTML table of `ready4`'s core generics and examples of methods associated with each generic can be displayed using the `print_methods` function, using the `return_1L_chr = "core"` argument.
+A HTML table of `ready4`'s core commands and examples of the use of each command can be displayed using the `print_methods` function, using the `return_1L_chr = "core"` argument.
 
 <div class="highlight">
 
@@ -260,15 +260,15 @@ Share data via an online repository
 
 </div>
 
-#### Slot generics and methods
+### Applying commands to module "slots"
 
-Each of the "core" generics also has a "slot" version, for use when applying a core method to a specified slot of a class. The `ready4` package associated methods for each of these "slot" generics for [the `Ready4Module` template](https://www.ready4-dev.com/docs/framework/implementation/modularity/#implementation). Two of these "slot" methods can also be used for additional purposes:
+Each of the "core" commands also has a "slot" version, which applies the command to a specified slot (a named element of a module). Two of these "slot" methods can also be used for additional purposes:
 
 -   [procureSlot](https://ready4-dev.github.io/ready4/reference/procureSlot-methods.html) is a "getter" method - its default behaviour is to return the value of a specified slot. If the argument `use_procure_mthd_1L_lgl = T` is included in the method call, `procureSlot` will instead apply the `procure` method to a specified slot.
 
 -   [renewSlot](https://ready4-dev.github.io/ready4/reference/procureSlot-methods.html) is a "setter" method - if any value other than "use_renew_mthd" (the default) is passed to the `new_val_xx` argument, that value will be assigned to the specified slot.
 
-A HTML table of the slot generics bundled with `ready4` can be displayed using the `print_methods` function, using the `return_1L_chr = "slot"` argument.
+A HTML table of slot commands and relevant examples can be displayed using the `print_methods` function, using the `return_1L_chr = "slot"` argument.
 
 <div class="highlight">
 
@@ -431,7 +431,7 @@ Apply the reckon method to a model module slot
 <a href="https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html"> renewSlot </a>
 </td>
 <td style="text-align:left;">
-Apply the renew method to a model module slot
+Renew (set) the values of data in a module slot
 </td>
 <td style="text-align:left;">
 <a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
@@ -454,9 +454,9 @@ Apply the share method to a model module slot
 
 </div>
 
-#### Extended `author` generics
+### Extended commands
 
-Finally, there are a small number of other generics that are more general extensions of the core functions. Currently, these extended generics are all variants on the `author` generics, with each one specifying the type of output to be authored by the method. The `ready4` package does not include methods for any of these extended generics. A HTML table of the extended generics bundled with `ready4` can be displayed using the `print_methods` function, using the `return_1L_chr = "extended"` argument.
+Finally, there are a small number of other commands that are more general extensions of the core commands. Currently, these extended commands are all variants on the `author` command, with each extension specifying the type of output to be authored by the method. A HTML table of the extended generics bundled with `ready4` can be displayed using the `print_methods` function, using the `return_1L_chr = "extended"` argument.
 
 <div class="highlight">
 

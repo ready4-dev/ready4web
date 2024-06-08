@@ -2,6 +2,7 @@
 # blogdown::build_site(run_hugo = F, build_rmd =T)
 #source("R/Functions.R")
 library(ready4)
+library(hugodown)
 project_dir_1L_chr <- getwd()
 ### DOCUMENTATION SECTION
 ## Render itemisation of currently available ready4 libraries

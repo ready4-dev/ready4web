@@ -1,7 +1,7 @@
 ---
 title: "Authoring model data structures"
 linkTitle: "Data structures"
-date: "2024-04-17"
+date: "2024-06-08"
 description: "The ready4class R package supports partially automated and standardised workflows for defining the data structures to be used in computational models."
 weight: 62
 aliases:
@@ -102,7 +102,7 @@ Is Old Class
 TTUSynopsis
 </td>
 <td style="text-align:right;">
-TTU::TTUSynopsis()
+TTUSynopsis()
 </td>
 <td style="text-align:right;">
 TTU
@@ -121,7 +121,7 @@ FALSE
 TTUReports
 </td>
 <td style="text-align:right;">
-TTU::TTUReports()
+TTUReports()
 </td>
 <td style="text-align:right;">
 TTU
@@ -140,7 +140,7 @@ FALSE
 TTUProject
 </td>
 <td style="text-align:right;">
-TTU::TTUProject()
+TTUProject()
 </td>
 <td style="text-align:right;">
 TTU
@@ -656,7 +656,7 @@ TRUE
 ready4fun_badges
 </td>
 <td style="text-align:right;">
-ready4fun_badges()
+ready4fun::ready4fun_badges()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -675,7 +675,7 @@ TRUE
 ready4fun_abbreviations
 </td>
 <td style="text-align:right;">
-ready4fun_abbreviations()
+ready4fun::ready4fun_abbreviations()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -694,7 +694,7 @@ TRUE
 ready4fun_objects
 </td>
 <td style="text-align:right;">
-ready4fun_objects()
+ready4fun::ready4fun_objects()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -713,7 +713,7 @@ TRUE
 ready4fun_functions
 </td>
 <td style="text-align:right;">
-ready4fun_functions()
+ready4fun::ready4fun_functions()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -732,7 +732,7 @@ TRUE
 ready4fun_executor
 </td>
 <td style="text-align:right;">
-ready4fun_executor()
+ready4fun::ready4fun_executor()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -751,7 +751,7 @@ TRUE
 ready4fun_description
 </td>
 <td style="text-align:right;">
-ready4fun_description()
+ready4fun::ready4fun_description()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -770,7 +770,7 @@ TRUE
 ready4fun_metadata_a
 </td>
 <td style="text-align:right;">
-ready4fun_metadata_a()
+ready4fun::ready4fun_metadata_a()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -789,7 +789,7 @@ TRUE
 ready4fun_metadata_b
 </td>
 <td style="text-align:right;">
-ready4fun_metadata_b()
+ready4fun::ready4fun_metadata_b()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -808,7 +808,7 @@ TRUE
 ready4fun_manifest
 </td>
 <td style="text-align:right;">
-ready4fun_manifest()
+ready4fun::ready4fun_manifest()
 </td>
 <td style="text-align:right;">
 ready4fun
@@ -827,7 +827,7 @@ TRUE
 ready4fun_dataset
 </td>
 <td style="text-align:right;">
-ready4fun_dataset()
+ready4fun::ready4fun_dataset()
 </td>
 <td style="text-align:right;">
 ready4fun

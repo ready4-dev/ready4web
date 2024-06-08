@@ -1,7 +1,7 @@
 ---
 title: "Why ready4 is object oriented"
 linkTitle: "Paradigm"
-date: "2024-04-17"
+date: "2024-06-08"
 description: "ready4 uses an object oriented programming (OOP) paradigm to implement computational models."
 weight: 61
 aliases:

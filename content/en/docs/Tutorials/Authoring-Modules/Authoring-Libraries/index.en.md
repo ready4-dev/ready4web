@@ -1,7 +1,7 @@
 ---
 title: "Dissemating citable, documented and quality assured model module libraries"
 linkTitle: "Libraries"
-date: "2024-04-17"
+date: "2024-06-08"
 description: "ready4 supports tools to streamline the testing, description and distribution of computational model modules."
 weight: 66
 aliases:
