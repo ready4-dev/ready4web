@@ -1,0 +1,38 @@
+---
+title: "Commands for using model modules"
+linkTitle: "Commands"
+date: "`r Sys.Date()`"
+description: "Apply model modules using a simple and consistent syntax."
+weight: 91
+tags:
+- Programming
+- Programming - literate
+- Reporting
+- Reporting - tutorials
+- Software
+- Software - libraries
+- Software - libraries (ready4show)
+- Status
+- Status - development
+categories:
+- Documentation
+output: hugodown::md_document
+---
+
+{{% pageinfo %}}
+This below section renders a vignette article from the ready4show library. You can use the following links to:
+
+* [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4show/articles/V_02.html)
+* [view the source file](https://github.com/ready4-dev/ready4show/blob/master/vignettes/V_02.Rmd) from that article, and;
+* [edit its contents](https://github.com/ready4-dev/ready4show/edit/master/vignettes/V_02.Rmd) (requires a GitHub account).
+{{% /pageinfo %}}
+
+```{r echo=FALSE, results='hide'}
+# x <- "UntitledRMD.Rmd"
+x <- tempfile(fileext = "Rmd")
+on.exit(unlink(x))
+download.file("https://raw.githubusercontent.com/ready4-dev/ready4show/master/vignettes/V_02.Rmd", x)
+```
+
+```{r test-main, child=x}
+```

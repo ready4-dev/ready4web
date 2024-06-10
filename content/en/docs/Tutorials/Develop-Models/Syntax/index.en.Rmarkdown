@@ -1,9 +1,9 @@
 ---
-title: "Syntax"
+title: "Provide end users with a simple and consistent syntax for using model modules"
 linkTitle: "Syntax"
 date: "`r Sys.Date()`"
-description: "ready4 modules use a simple and consistent syntax."
-weight: 63
+description: "Methods are associated with ready4 modules using a novel syntax."
+weight: 2
 aliases:
 - /docs/framework/implementation/syntax
 categories: 
@@ -25,9 +25,9 @@ output: hugodown::md_document
 {{% pageinfo %}}
 This below section renders a vignette article from the ready4 library. You can use the following links to:
 
-* [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4/articles/V_02.html)
-* [view the source file](https://github.com/ready4-dev/ready4/blob/main/vignettes/V_02.Rmd) from that article, and;
-* [edit its contents](https://github.com/ready4-dev/ready4/edit/main/vignettes/V_02.Rmd) (requires a GitHub account).
+* [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4/articles/V_07.html)
+* [view the source file](https://github.com/ready4-dev/ready4/blob/main/vignettes/V_07.Rmd) from that article, and;
+* [edit its contents](https://github.com/ready4-dev/ready4/edit/main/vignettes/V_07.Rmd) (requires a GitHub account).
 {{% /pageinfo %}}
 
 
@@ -35,7 +35,7 @@ This below section renders a vignette article from the ready4 library. You can u
 #setInternet2(use = TRUE)
 x <- tempfile(fileext = "Rmd")
 on.exit(unlink(x))
-download.file("https://raw.githubusercontent.com/ready4-dev/ready4/master/vignettes/V_02.Rmd", x)
+download.file("https://raw.githubusercontent.com/ready4-dev/ready4/master/vignettes/V_07.Rmd", x)
 ```
 
 ```{r test-main, child=x}

@@ -3,7 +3,7 @@
 title: "Author and share model modules"
 linkTitle: "Author modules"
 date: 2017-01-05
-weight: 4
+weight: 3
 aliases:
 - /docs/framework/use/authoring-modules
 categories: 

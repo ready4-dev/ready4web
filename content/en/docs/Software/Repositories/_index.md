@@ -14,14 +14,12 @@ description: >
 
 Currently:
 
-- the most up to date development releases for all ready4 software is available in the [ready4-dev GitHub organisation](https://github.com/ready4-dev); 
+- one framework library is [available on the Comprehensive R Archive Network](https://cran.r-project.org/web/packages/ready4/index.html);
 
-- citable and uniquely identified (with a DOI) archived releases of ready4 software are available in the [ready4 Zenodo community](https://zenodo.org/communities/ready4) and are indexed in [OpenAire Explore](https://explore.openaire.eu); and
+- development releases for all ready4 libraries are available in the [ready4-dev GitHub organisation](https://github.com/ready4-dev); and
 
-- ready4 user interfaces that have web-based deployments are hosted on [Shinyapps.io](https://www.shinyapps.io).
+- citable and uniquely identified (with a DOI) archived releases of ready4 libraries are available in the [ready4 Zenodo community](https://zenodo.org/communities/ready4) and are indexed in [OpenAire Explore](https://explore.openaire.eu).
 
-
-We have yet to issue production releases of any of our R packages, but once these are finalised we will be submitting them to the [Comprehensive R Archive Network](https://cran.r-project.org). 
 
 
 

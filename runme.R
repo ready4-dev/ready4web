@@ -67,7 +67,7 @@ write_to_render_post(path_to_main_dir_1L_chr = paste0(project_dir_1L_chr,"/conte
 # write_to_force_links_in(paste0(project_dir_1L_chr,"/content/en/docs/model/datasets/Finding-Data/Search/index.en.md"),
 #                         consent_1L_chr = "Y")
 # Render Analyses articles
-c("Scientific-Summaries") %>% # Do not evaluate write fns, add scroll text and then restore link to online RMD
+c("Commands","Scientific-Summaries") %>% # Do not evaluate write fns, add scroll text and then restore link to online RMD
   write_to_render_post(path_to_main_dir_1L_chr = paste0(project_dir_1L_chr,"/content/en/docs/Tutorials/Authoring-Analyses"),
                        consent_1L_chr = "Y",
                        is_rmd_1L_lgl = F)

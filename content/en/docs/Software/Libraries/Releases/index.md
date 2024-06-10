@@ -1,6 +1,6 @@
 ---
-title: "Finding framework libraries"
-linkTitle: "Finding"
+title: "Types of framework libraries"
+linkTitle: "Types"
 date: "2024-06-08"
 description: "There are two types of framework libraries - a foundational library and libraries of authoring tools."
 aliases:

@@ -1,5 +1,5 @@
 ---
-title: "Code library documentation"
+title: "Library documentation"
 linkTitle: "Documentation"
 weight: 266
 categories: 

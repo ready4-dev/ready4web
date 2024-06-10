@@ -14,7 +14,7 @@ description: >
   The ready4 prototype software framework supports model implementations that meet explicit transparency, reusability and updatability criteria.
 ---
 
-Transparent, reusable and updatable (TRU) computational health economic models are signifiers of ethical modelling practice. The ready4 software framework provides tools to help implement TRU models (see [this preprint](https://arxiv.org/pdf/2403.17798.pdf) for a detailed description).
+The ready4 software framework provides tools to help implement computational health economic models that are transparent, reusable and updatable (TRU).
 
 ## Transparent
 Model code and data are publicly available in online [code repositories](/docs/software/repositories/) and [data collections](/docs/model/datasets/finding-data/search/). Algorithms are [documented and transparently and regularly tested](/docs/software/libraries/documentation/). Model development occurs [in the open](https://github.com/ready4-dev) and [invites community participation](/docs/contribution-guidelines/contribution-types/code/), with each individual's [contribution](/docs/contribution-guidelines/) publicly identifiable. [Analyses](/docs/model/analyses/) are [reproducible and replicable](/docs/getting-started/concepts/reproducible-replicable-generalisable/#reproduction-and-replication).
@@ -25,3 +25,4 @@ Model code and data are publicly available in online [code repositories](/docs/s
 ## Updatable
 Model code, data and analyses are versioned, with an ongoing program of making [new and updated releases](/blog/releases/). Software is [maintained](/docs/contribution-guidelines/priorities/curate/), with opportunities for users and contributors to flag issues, request features and supply [code contributions](/docs/contribution-guidelines/contribution-types/code/).
 
+The criteria we use for assessing TRU attributes of computational models are described in more detail in [this preprint](https://arxiv.org/pdf/2403.17798.pdf), with a worked example of the application of these criteria provided in [this article from PharmacoEconomics](https://rdcu.be/dIv8g).

@@ -1,14 +1,14 @@
 ---
 title: "Motivation"
 linkTitle: "Motivation"
-weight: 21
+weight: 1
 categories: 
 - Documentation
 tags:
 - Project
 - Project - purpose
 description: >
-  To support the development of [replicable](/docs/getting-started/concepts/reproducible-replicable-generalisable/) and [transferable](/docs/getting-started/concepts/transferable/) health economic models ready4 provides a framework for implementing [modular](/docs/getting-started/concepts/module/) and [open source](/docs/software/terms/licenses/) projects.
+  There are a number of limitations to current health economic modelling practice, with models rarely adequately [transparent, reusable and updatable](/docs/framework/standards/).
 ---
 
 ## Problem

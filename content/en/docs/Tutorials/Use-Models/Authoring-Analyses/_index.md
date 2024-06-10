@@ -1,6 +1,6 @@
 ---
-title: "Author and share reproducible analyses"
-linkTitle: "Run analyses"
+title: "Using model modules for repeatable analyses"
+linkTitle: "Analyses"
 date: 2017-01-05
 aliases:
 - /docs/framework/use/authoring-analyses
@@ -17,6 +17,6 @@ categories:
 - Documentation
 weight: 92
 description: >
-  Tools from the ready4show R package support authoring of programs and subroutines to implement and report analyses with ready4.
+  The ready4 framework provides tools to support the authoring of programs and subroutines to run and report analyses with ready4.
 ---
 

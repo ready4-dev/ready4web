@@ -1,6 +1,6 @@
 ---
-title: "Finding framework libraries"
-linkTitle: "Finding"
+title: "Framework library descriptions"
+linkTitle: "Details"
 date: "`r Sys.Date()`"
 description: "There are two types of framework libraries - a foundational library and libraries of authoring tools."
 aliases:
