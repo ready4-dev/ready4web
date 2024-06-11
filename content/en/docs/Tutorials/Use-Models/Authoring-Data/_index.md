@@ -5,7 +5,7 @@ linkTitle: "Add data"
 date: 2017-01-05
 aliases:
 - /docs/framework/use/authoring-data
-weight: 70
+weight: 92
 categories: 
 - Documentation
 tags: 
@@ -20,5 +20,5 @@ tags:
 - Status
 - Status - development
 description: >
-  The ready4use R package provides tools for supplying data to youth mental health computational models.
+  The ready4use R package provides tools for supplying data to model modules.
 ---

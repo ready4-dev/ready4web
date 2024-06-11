@@ -1,7 +1,7 @@
 
 ---
 title: "Author and share model modules"
-linkTitle: "Author modules"
+linkTitle: "Authoring"
 date: 2017-01-05
 weight: 3
 aliases:

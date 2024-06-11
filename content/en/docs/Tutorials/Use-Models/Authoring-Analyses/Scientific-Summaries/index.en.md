@@ -1,7 +1,7 @@
 ---
 title: "Authoring scientific manuscripts"
 linkTitle: "Reporting"
-date: "2024-04-17"
+date: "2024-06-11"
 description: "Tools from the ready4show R package support authoring of scientific summaries of analyses with ready4."
 weight: 92
 aliases:

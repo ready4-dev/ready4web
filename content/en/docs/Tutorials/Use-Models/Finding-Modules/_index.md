@@ -12,7 +12,7 @@ tags:
 - Status - development
 categories:
 - Documentation
-weight: 92
+weight: 91
 description: >
   The ready4 library provides tools to help retrieve details of model module collections and documentation on individual model modules.
 ---

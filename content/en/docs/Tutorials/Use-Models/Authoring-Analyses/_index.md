@@ -1,6 +1,6 @@
 ---
 title: "Using model modules for repeatable analyses"
-linkTitle: "Analyses"
+linkTitle: "Run models"
 date: 2017-01-05
 aliases:
 - /docs/framework/use/authoring-analyses

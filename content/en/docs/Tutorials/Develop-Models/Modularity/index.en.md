@@ -1,9 +1,9 @@
 ---
-title: "Modularity"
-linkTitle: "Modularity"
-date: "2024-06-08"
-description: "ready4 supports a modular approach to computational model development."
-weight: 62
+title: "Template module"
+linkTitle: "Template"
+date: "2024-06-11"
+description: "ready4 provides a template to facilitate modular implementation of health economic models."
+weight: 1
 aliases:
 - /docs/framework/implementation/modularity
 categories: 
@@ -18,7 +18,7 @@ tags:
 - Status
 - Status - development
 output: hugodown::md_document
-rmd_hash: f79a1dae7c80fa97
+rmd_hash: 3d8655afad1325c6
 
 ---
 

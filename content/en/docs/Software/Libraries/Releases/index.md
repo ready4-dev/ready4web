@@ -1,7 +1,7 @@
 ---
-title: "Types of framework libraries"
-linkTitle: "Types"
-date: "2024-06-08"
+title: "Framework library descriptions"
+linkTitle: "Details"
+date: "2024-06-11"
 description: "There are two types of framework libraries - a foundational library and libraries of authoring tools."
 aliases:
 - /docs/software/libraries/types
@@ -18,7 +18,7 @@ tags:
 - Status
 - Status - development
 output: hugodown::md_document
-rmd_hash: a4ae48b3c0843496
+rmd_hash: d6fd487da7a1a362
 
 ---
 

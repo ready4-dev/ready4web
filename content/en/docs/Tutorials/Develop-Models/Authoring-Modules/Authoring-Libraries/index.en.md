@@ -1,7 +1,7 @@
 ---
 title: "Dissemating citable, documented and quality assured model module libraries"
 linkTitle: "Libraries"
-date: "2024-06-08"
+date: "2024-06-11"
 description: "ready4 supports tools to streamline the testing, description and distribution of computational model modules."
 weight: 66
 aliases:
@@ -17,15 +17,15 @@ tags:
 - Status
 - Status - development
 output: hugodown::md_document
-rmd_hash: 38cde7c2b40c86d1
+rmd_hash: 65042fa474293ce8
 
 ---
 
 {{% pageinfo %}} This below section renders a vignette article from the ready4pack library. You can use the following links to:
 
 -   [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4pack/articles/V_01.html)
--   [view the source file](https://github.com/ready4-dev/ready4pack/blob/master/vignettes/V_01.Rmd) from that article, and;
--   [edit its contents](https://github.com/ready4-dev/ready4pack/edit/master/vignettes/V_01.Rmd) (requires a GitHub account). {{% /pageinfo %}}
+-   [view the source file](https://github.com/ready4-dev/ready4pack/blob/main/vignettes/V_01.Rmd) from that article, and;
+-   [edit its contents](https://github.com/ready4-dev/ready4pack/edit/main/vignettes/V_01.Rmd) (requires a GitHub account). {{% /pageinfo %}}
 
 <div class="highlight">
 

@@ -1,537 +1,390 @@
 ---
 title: "Find themed collections of ready4 modules"
 linkTitle: "Collections"
-date: "2024-04-17"
+date: "2024-06-11"
 description: "Tools from the ready4 R library can help find details about module libraries from a modelling project."
 weight: 91
 tags:
 - Programming
+- Programming - literate
 - Reporting
 - Reporting - tutorials
 - Software
 - Software - libraries
-- Software - libraries (ready4)
+- Software - libraries (ready4show)
 - Status
 - Status - development
 categories:
 - Documentation
 output: hugodown::md_document
-rmd_hash: 61310ec0a3c5efab
+rmd_hash: b0cdeee638ed918a
 html_dependencies:
 - <script src="kePrint-0.0.1/kePrint.js"></script>
 - <link href="lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 ---
 
-{{% pageinfo %}} This below section renders a vignette article from the ready4show library. You can use the following links to:
+{{% pageinfo %}} This below section renders a vignette article from the ready4 library. You can use the following links to:
 
--   [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4show/articles/V_04.html)
--   [view the source file](https://github.com/ready4-dev/ready4show/blob/master/vignettes/V_04.Rmd) from that article, and;
--   [edit its contents](https://github.com/ready4-dev/ready4show/edit/master/vignettes/V_04.Rmd) (requires a GitHub account). {{% /pageinfo %}}
+-   [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4/articles/V_04.html)
+-   [view the source file](https://github.com/ready4-dev/ready4/blob/main/vignettes/V_04.Rmd) from that article, and;
+-   [edit its contents](https://github.com/ready4-dev/ready4/edit/main/vignettes/V_04.Rmd) (requires a GitHub account). {{% /pageinfo %}}
 
 <div class="highlight">
 
 </div>
 
 <div class="highlight">
+
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4/'>ready4</a></span><span class='o'>)</span> </span></code></pre>
 
 </div>
 
 ## Motivation
 
-Open science workflows should ideally span an unbroken chain between data-ingest to production of a scientific summary such as a manuscript. Such extensive workflows provide an explicit means of linking all content in a scientific summary with the analysis that it reports.
+To use and combine health economic model modules it is first useful to find modules that have been developed using a common framework that promotes inter-operability.
 
 ## Implementation
 
-`ready4show` includes a number of classes and methods that help integrate manuscript authoring into a reproducible workflow. These tools are part of the [ready4 framework for transparent, reusable and updatable health economic models](https://www.ready4-dev.com).
+A table summarising currently available module libraries authored with the [ready4 framework](https://www.ready4-dev.com/) within a specified GitHub organisation can be retrieved from an online dataset by using the `get_libraries_tb` and `update_libraries_tb` functions.
 
-### Load required libraries
+## Use
 
-We first begin by loading the libraries we will require to implement this workflow.
+In the below example we will search for modules from the [readyforwhatsnext model](https://readyforwhatsnext.org/). The source code for these modules all reside in the [ready4-dev GitHub repository](https://github.com/ready4-dev). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4/'>ready4</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4show/'>ready4show</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/rstudio/bookdown'>bookdown</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/rstudio/rticles'>rticles</a></span><span class='o'>)</span></span></code></pre>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>libraries_tb</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_libraries_tb.html'>get_libraries_tb</a></span><span class='o'>(</span>gh_repo_1L_chr <span class='o'>=</span> <span class='s'>"ready4-dev/ready4"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/update_libraries_tb.html'>update_libraries_tb</a></span><span class='o'>(</span>include_1L_chr <span class='o'>=</span> <span class='s'>"modules"</span>, url_stub_1L_chr <span class='o'>=</span> <span class='s'>"https://ready4-dev.github.io/"</span><span class='o'>)</span></span></code></pre>
 
 </div>
 
-### Set consent policy
-
-By default, methods in the `ready4show` package will request your consent before writing files to your machine. This is the safest option. However, as there are many files that need to be written locally for this program to execute, you can overwrite this default by supplying the value "Y" to methods with a `consent_1L_chr` argument.
+In this example, module libraries have been grouped in to the following thematic model "sections".
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>consent_1L_chr</span> <span class='o'>&lt;-</span> <span class='s'>""</span> <span class='c'># Default value - asks for consent prior to writing each file.</span></span></code></pre>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>libraries_tb</span><span class='o'>$</span><span class='nv'>Section</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='o'>(</span><span class='o'>)</span></span>
+<span><span class='c'>#&gt; [1] "People"   "Places"   "Programs"</span></span>
+<span></span></code></pre>
 
 </div>
 
-<div class="highlight">
-
-</div>
-
-### Create a synopsis of the manuscript to be authored
-
-To start with we create `X`, an instance of `Ready4showSynopsis`, a ready4 module (S4 class). We can use `X` to record metadata about the manuscript to be authored (including details about the study being summarised and the title and format of the intended output).
+We can use the `print_packages` function to display a HTML summary of the module libraries currently available for each section. The resulting table summarises the types of module library (e.g. those for description, developing models or predicting with models), the name and purpose of those libraries, the locations from which development and archived library code can be downloaded and details of supporting documentation for each library (e.g. website, manuals and examples).
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4show/reference/Ready4showSynopsis-class.html'>Ready4showSynopsis</a></span><span class='o'>(</span>background_1L_chr <span class='o'>=</span> <span class='s'>"Our study is entirely fictional."</span>,</span>
-<span>                        coi_1L_chr <span class='o'>=</span> <span class='s'>"None declared."</span>,</span>
-<span>                        conclusion_1L_chr <span class='o'>=</span> <span class='s'>"These fake results are not interesting."</span>,</span>
-<span>                        digits_int <span class='o'>=</span> <span class='m'>3L</span>,</span>
-<span>                        ethics_1L_chr <span class='o'>=</span> <span class='s'>"The study was reviewed and granted approval by Awesome University's Human Research Ethics Committee (1111111.1)."</span>,</span>
-<span>                        funding_1L_chr <span class='o'>=</span> <span class='s'>"The study was funded by Generous Benefactor."</span>,</span>
-<span>                        interval_chr <span class='o'>=</span> <span class='s'>"three months"</span>,</span>
-<span>                        keywords_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"entirely"</span>,<span class='s'>"fake"</span>,<span class='s'>"do"</span>, <span class='s'>"not"</span>,<span class='s'>"cite"</span><span class='o'>)</span>,</span>
-<span>                        outp_formats_chr <span class='o'>=</span> <span class='s'>"PDF"</span>,</span>
-<span>                        sample_desc_1L_chr <span class='o'>=</span> <span class='s'>"The study sample is fake data that pretends to be young people aged 12 to 25 years who attended Australian primary care services for mental health related needs between November 2019 to August 2020."</span>,</span>
-<span>                        title_1L_chr <span class='o'>=</span> <span class='s'>"A hypothetical study using fake data"</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-### Add authorship details
-
-Authorship details can be added to slots of `X` that contain `ready4show_authors` and `ready4show_instututes` ready4 sub-modules.
-
-As we can see from the below call to `exhibitSlot`, `X` was created with no authorship information.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>            <span class='s'>"authors_r3"</span>,</span>
-<span>            scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"People"</span><span class='o'>)</span><span class='o'>)</span></span>
 </code></pre>
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-First-name
+Type
 </th>
 <th style="text-align:left;">
-Middle-name
+Package
 </th>
 <th style="text-align:left;">
-Last-name
+Purpose
 </th>
 <th style="text-align:left;">
-Title
+Documentation
 </th>
 <th style="text-align:left;">
-Qualifications
+Code
 </th>
 <th style="text-align:left;">
-Institutes
-</th>
-<th style="text-align:left;">
-Sequence Position
-</th>
-<th style="text-align:left;">
-Corresponding
-</th>
-<th style="text-align:left;">
-Email
-</th>
-<th style="text-align:left;">
-Joint-first
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
-</table>
-
-</div>
-
-</div>
-
-We can add details on each author by repeated calls to the `renewSlot` method.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"authors_r3"</span>,</span>
-<span>          first_nm_chr <span class='o'>=</span> <span class='s'>"Alejandra"</span>,</span>
-<span>          middle_nm_chr <span class='o'>=</span> <span class='s'>"Rocio"</span>,</span>
-<span>          last_nm_chr <span class='o'>=</span> <span class='s'>"Scienceace"</span>,</span>
-<span>          title_chr <span class='o'>=</span> <span class='s'>"Dr"</span>,</span>
-<span>          qualifications_chr <span class='o'>=</span> <span class='s'>"MD, PhD"</span>,</span>
-<span>          institute_chr <span class='o'>=</span> <span class='s'>"Institute_A, Institute_B"</span>,</span>
-<span>          sequence_int <span class='o'>=</span> <span class='m'>1</span>,</span>
-<span>          is_corresponding_lgl <span class='o'>=</span> <span class='kc'>T</span>,</span>
-<span>          email_chr <span class='o'>=</span> <span class='s'>"fake_email@fake_institute.com"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"authors_r3"</span>,</span>
-<span>            first_nm_chr <span class='o'>=</span> <span class='s'>"Fionn"</span>,</span>
-<span>            middle_nm_chr <span class='o'>=</span> <span class='s'>"Seamus"</span>,</span>
-<span>            last_nm_chr <span class='o'>=</span> <span class='s'>"Researchchamp"</span>,</span>
-<span>            title_chr <span class='o'>=</span> <span class='s'>"Prof"</span>,</span>
-<span>            qualifications_chr <span class='o'>=</span> <span class='s'>"MSc, PhD"</span>,</span>
-<span>            institute_chr <span class='o'>=</span> <span class='s'>"Institute_C, Institute_B"</span>,</span>
-<span>            sequence_int <span class='o'>=</span> <span class='m'>2</span>,</span>
-<span>            email_chr <span class='o'>=</span> <span class='s'>"fake_email@unreal_institute.com"</span><span class='o'>)</span> </span></code></pre>
-
-</div>
-
-The updated authorship table can now be inspected.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"authors_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
-</code></pre>
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-First-name
-</th>
-<th style="text-align:right;">
-Middle-name
-</th>
-<th style="text-align:left;">
-Last-name
-</th>
-<th style="text-align:right;">
-Title
-</th>
-<th style="text-align:left;">
-Qualifications
-</th>
-<th style="text-align:right;">
-Institutes
-</th>
-<th style="text-align:left;">
-Sequence Position
-</th>
-<th style="text-align:right;">
-Corresponding
-</th>
-<th style="text-align:left;">
-Email
-</th>
-<th style="text-align:right;">
-Joint-first
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Alejandra
-</td>
-<td style="text-align:right;">
-Rocio
+<img src="https://img.shields.io/badge/ready4-description-navy?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
 <td style="text-align:left;">
-Scienceace
-</td>
-<td style="text-align:right;">
-Dr
+<img src="https://ready4-dev.github.io/youthvars/logo.png" width="51.2" height="51.2">
 </td>
 <td style="text-align:left;">
-MD, PhD
-</td>
-<td style="text-align:right;">
-Institute_A, Institute_B
+Describe and Validate Youth Mental Health Dataset Variables
 </td>
 <td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-TRUE
+<a href="https://ready4-dev.github.io/youthvars/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/youthvars/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/youthvars/releases/download/Documentation_0.0/youthvars_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/youthvars/releases/download/Documentation_0.0/youthvars_Developer.pdf" style="     ">Manual - Full (PDF)</a>
 </td>
 <td style="text-align:left;">
-<fake_email@fake>\_institute.com
+<a href="https://github.com/ready4-dev/youthvars/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5646550" style="     ">Archive</a>
 </td>
-<td style="text-align:right;">
-NA
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/youthvars/articles/V_01.html" style="     ">12</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Fionn
-</td>
-<td style="text-align:right;">
-Seamus
+<img src="https://img.shields.io/badge/ready4-description-navy?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
 <td style="text-align:left;">
-Researchchamp
-</td>
-<td style="text-align:right;">
-Prof
+<img src="https://ready4-dev.github.io/scorz/logo.png" width="51.2" height="51.2">
 </td>
 <td style="text-align:left;">
-MSc, PhD
-</td>
-<td style="text-align:right;">
-Institute_C, Institute_B
+Score Multi-Attribute Utility Instruments
 </td>
 <td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-NA
+<a href="https://ready4-dev.github.io/scorz/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/scorz/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/scorz/releases/download/Documentation_0.0/scorz_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/scorz/releases/download/Documentation_0.0/scorz_Developer.pdf" style="     ">Manual - Full (PDF)</a>
 </td>
 <td style="text-align:left;">
-<fake_email@unreal>\_institute.com
+<a href="https://github.com/ready4-dev/scorz/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5722708" style="     ">Archive</a>
 </td>
-<td style="text-align:right;">
-NA
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
+</td>
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/mychoice/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Model Youth Choice Behaviours
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/mychoice/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/mychoice/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/mychoice/releases/download/Documentation_0.0/mychoice_Developer.pdf" style="     ">Citation</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/mychoice/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.7213799" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
+</td>
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/TTU/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Implement Transfer to Utility Mapping Algorithms
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/TTU/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/TTU/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/TTU/releases/download/Documentation_0.0/TTU_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/TTU/releases/download/Documentation_0.0/TTU_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/TTU/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5646593" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
+</td>
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/heterodox/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Explore and Characterise Heterogeneity in Quality of Life Data
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/heterodox/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/heterodox/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/heterodox/releases/download/Documentation_0.0/heterodox_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/heterodox/releases/download/Documentation_0.0/heterodox_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/heterodox/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5751193" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
+</td>
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/specific/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Specify Models to Solve Inverse Problems
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/specific/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/specific/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/specific/releases/download/Documentation_0.0/specific_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/specific/releases/download/Documentation_0.0/specific_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/specific/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5768689" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="https://img.shields.io/badge/ready4-prediction-forestgreen?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
+</td>
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/youthu/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Transform Youth Outcomes to Health Utility Predictions
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/youthu/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/youthu/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/youthu/releases/download/Documentation_0.0/youthu_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/youthu/releases/download/Documentation_0.0/youthu_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/youthu/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5646668" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/youthu/articles/V_01.html" style="     ">18</a>
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
 
-</div>
-
-We now need to add additional information for each author institute.
-
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"institutes_r3"</span>,</span>
-<span>          short_name_chr <span class='o'>=</span> <span class='s'>"Institute_A"</span>, </span>
-<span>          long_name_chr <span class='o'>=</span> <span class='s'>"Awesome University, Shanghai"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>            short_name_chr <span class='o'>=</span> <span class='s'>"Institute_B"</span>, </span>
-<span>            long_name_chr <span class='o'>=</span> <span class='s'>"August Institution, London"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>            new_val_xx <span class='o'>=</span> <span class='s'>"use_renew_mthd"</span>,</span>
-<span>            short_name_chr <span class='o'>=</span> <span class='s'>"Institute_C"</span>, </span>
-<span>            long_name_chr <span class='o'>=</span> <span class='s'>"Highly Ranked Uni, Montreal"</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-The updated institutes table can now be inspected.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"Places"</span><span class='o'>)</span><span class='o'>)</span></span>
 </code></pre>
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Reference
+Type
 </th>
-<th style="text-align:right;">
-Name
+<th style="text-align:left;">
+Package
+</th>
+<th style="text-align:left;">
+Purpose
+</th>
+<th style="text-align:left;">
+Documentation
+</th>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Institute_A
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
-<td style="text-align:right;">
-Awesome University, Shanghai
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/aus/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Model Australian Spatial Data
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/aus/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/aus/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/aus/releases/download/Documentation_0.0/aus_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/aus/releases/download/Documentation_0.0/aus_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/aus/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.7687126" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Institute_B
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
-<td style="text-align:right;">
-August Institution, London
-</td>
-</tr>
-<tr>
 <td style="text-align:left;">
-Institute_C
+<img src="https://ready4-dev.github.io/vicinity/logo.png" width="51.2" height="51.2">
 </td>
-<td style="text-align:right;">
-Highly Ranked Uni, Montreal
+<td style="text-align:left;">
+Model Spatial Features of Health Systems
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/vicinity/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/vicinity/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/vicinity/releases/download/Documentation_0.0/vicinity_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/vicinity/releases/download/Documentation_0.0/vicinity_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/vicinity/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.7623630" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
 
-</div>
-
-### Add correspondences
-
-We can also add a look-up table about any changes we wish to make from the analysis code of how names of variables / parameters are presented in the manuscript text.
-
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>               <span class='s'>"correspondences_r3"</span>,</span>
-<span>               old_nms_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"PHQ9"</span>, <span class='s'>"GAD7"</span><span class='o'>)</span>,</span>
-<span>               new_nms_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"PHQ-9"</span>, <span class='s'>"GAD-7"</span><span class='o'>)</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-These edits can now be inspected with a call to `exhibitSlot`.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"correspondences_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> <span class='c'># Add Exhibit Method</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"Programs"</span><span class='o'>)</span><span class='o'>)</span></span>
 </code></pre>
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Old name
+Type
 </th>
-<th style="text-align:right;">
-New name
+<th style="text-align:left;">
+Package
+</th>
+<th style="text-align:left;">
+Purpose
+</th>
+<th style="text-align:left;">
+Documentation
+</th>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-PHQ9
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
-<td style="text-align:right;">
-PHQ-9
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/bimp/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Undertake Health Economic Budget Impact Analysis.
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/bimp/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/bimp/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/bimp/releases/download/Documentation_0.0/bimp_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/bimp/releases/download/Documentation_0.0/bimp_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/bimp/" style="     ">Dev</a> , <a href="https://doi.org/10.5281/zenodo.5889462" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-GAD7
+<img src="https://img.shields.io/badge/ready4-modelling-indigo?style=flat&amp;labelColor=black&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMjI6MDM6MDcgMTY6MTM6NTPZeG5UAAABa0lEQVQ4T4WT607CQBCFpyUi3qIR0eAfNfCi/vENfEgENIAIlcJ6vr1oLaZOerJzdst0zpklc49nznqHZs6ZfWwDem1xM1sqXwtXkb8rL4SuOLEoLXPPXWfD01Dg9dPsrTQbngQ+EZ+LDyIfiy/FHyIfFZbbTslWKOOqxx/uWBPSfp07FahGlqlNfWGqL9HNfBO+CAfwdO55WS8g4MFML834sfJVA9e7vwsg50aGohncdmRojV9XeL+jArRNmZxVSJ4Acj3NHqARdyeFJqC2KJiCfKE9zsfxnNYTl5TcCtmNMcwY/ZXf+3wdzzVza2vj4iCaq3d1R/bvwVSH6IPjNIUHx0FSNZA7WquDqOVb35+eiO8h7Oe+vRfp0a3yGtFMDuiAIg2R20YaVwJ3Hj+4kehO/J/I7VJ/jHtpvBP6mrHnR4EzdyQ0xI8HhM8jUiChxVpDK3iVuadzx43yRdI4E2d0gNtX74TCs419AR8YEST/cHPBAAAAAElFTkSuQmCC">
 </td>
-<td style="text-align:right;">
-GAD-7
+<td style="text-align:left;">
+<img src="https://ready4-dev.github.io/costly/logo.png" width="51.2" height="51.2">
+</td>
+<td style="text-align:left;">
+Develop, Use and Share Unit Cost Datasets for Health Economic
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/costly/authors.html" style="     ">Citation</a> , <a href="https://ready4-dev.github.io/costly/index.html" style="     ">Website</a> , <a href="https://github.com/ready4-dev/costly/releases/download/Documentation_0.0/costly_User.pdf" style="     ">Manual - Short (PDF)</a> , <a href="https://github.com/ready4-dev/costly/releases/download/Documentation_0.0/costly_Developer.pdf" style="     ">Manual - Full (PDF)</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/ready4-dev/costly/" style="     ">Dev</a> , <a href="https://github.com/ready4-dev/costly/" style="     ">Archive</a>
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a>, <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
 
-</div>
+## Related content
 
-### Specify output directory
-
-We now update `X` with details of the directory to which we wish to write the manuscript we are authoring and all its supporting files.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>               <span class='s'>"a_Ready4showPaths@outp_data_dir_1L_chr"</span>,</span>
-<span>               new_val_xx <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='o'>(</span><span class='o'>)</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-### Create dataset of literate programming files
-
-Our next step is to copy a dataset of files that can implement a literate program to generate our manuscript. If you have a template you wish to work with, you can specify its local path using the `a_Ready4showPaths@mkdn_source_dir_1L_chr` slot of the `X`. Skip this step if you wish to use [the default markdown dataset](https://github.com/ready4-dev/ms_tmpl), which leverages popular rmarkdown toolkits such as `bookdown` and `rticles`.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>## Not run</span></span>
-<span><span class='c'># procureSlot(X,</span></span>
-<span><span class='c'>#             "a_Ready4showPaths@mkdn_source_dir_1L_chr",</span></span>
-<span><span class='c'>#             new_val_xx  = "PATH TO MARKDOWN DATASET")</span></span></code></pre>
-
-</div>
-
-We create the dataset copy with the `authorData` method.
-
-<div class="highlight">
-
-</div>
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorData-methods.html'>authorData</a></span><span class='o'>(</span><span class='nv'>X</span>, consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-Having created a local copy of the template literate program files dataset, it is now possible to manually edit the markdown files to author the manuscript. However, in this example we are skipping this step and will continue to use the unedited template in conjunction with the metadata we have specified in `X`. We combine the two to author a manuscript using the `authorReport` method.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span><span class='nv'>X</span>, consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-If we wish, we can now ammend `X` and then rerun the `authorReport` method to generate Word and HTML versions of the manuscript.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"outp_formats_chr"</span>,</span>
-<span>          new_val_xx <span class='o'>=</span> <span class='s'>"Word"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span>consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"outp_formats_chr"</span>,</span>
-<span>          new_val_xx <span class='o'>=</span> <span class='s'>"HTML"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span>consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-<div class="highlight">
-
-</div>
-
-The outputed files are as follows:
-
--   [PDF version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.pdf) (and [LaTeX file that generated it](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.tex))
--   [Word version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.docx)
--   [HTML version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.html)
-
-<div class="highlight">
-
-</div>
+Details of how to search for details on individual modules is described in [another article](https://ready4-dev.github.io/ready4/articles/V_05.html).
 

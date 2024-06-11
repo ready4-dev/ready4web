@@ -1,11 +1,9 @@
 ---
-title: "Authoring scientific manuscripts"
-linkTitle: "Reporting"
-date: "2024-04-17"
-description: "Tools from the ready4show R package support authoring of scientific summaries of analyses with ready4."
-weight: 92
-aliases:
-- /docs/framework/use/authoring-analyses/scientific-summaries
+title: "Commands for using model modules"
+linkTitle: "Commands"
+date: "2024-06-11"
+description: "Apply model modules using a simple and consistent syntax."
+weight: 91
 tags:
 - Programming
 - Programming - literate
@@ -19,7 +17,7 @@ tags:
 categories:
 - Documentation
 output: hugodown::md_document
-rmd_hash: 61310ec0a3c5efab
+rmd_hash: b59564bf0f30e44e
 html_dependencies:
 - <script src="kePrint-0.0.1/kePrint.js"></script>
 - <link href="lightable-0.0.1/lightable.css" rel="stylesheet" />
@@ -28,513 +26,506 @@ html_dependencies:
 
 {{% pageinfo %}} This below section renders a vignette article from the ready4show library. You can use the following links to:
 
--   [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4show/articles/V_01.html)
--   [view the source file](https://github.com/ready4-dev/ready4show/blob/master/vignettes/V_01.Rmd) from that article, and;
--   [edit its contents](https://github.com/ready4-dev/ready4show/edit/master/vignettes/V_01.Rmd) (requires a GitHub account). {{% /pageinfo %}}
+-   [view the vignette on the library website (adds useful hyperlinks to code blocks)](https://ready4-dev.github.io/ready4/articles/V_02.html)
+-   [view the source file](https://github.com/ready4-dev/ready4/blob/main/vignettes/V_02.Rmd) from that article, and;
+-   [edit its contents](https://github.com/ready4-dev/ready4/edit/main/vignettes/V_02.Rmd) (requires a GitHub account). {{% /pageinfo %}}
 
 <div class="highlight">
 
 </div>
 
 <div class="highlight">
+
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4/'>ready4</a></span><span class='o'>)</span> </span></code></pre>
 
 </div>
 
 ## Motivation
 
-Open science workflows should ideally span an unbroken chain between data-ingest to production of a scientific summary such as a manuscript. Such extensive workflows provide an explicit means of linking all content in a scientific summary with the analysis that it reports.
+To be used in health economic analyses, model modules need to be called using a programming syntax. Ideally that syntax should be relatively simple, with the name and description of each command reliably communicating the category of operations it performs.
 
 ## Implementation
 
-`ready4show` includes a number of classes and methods that help integrate manuscript authoring into a reproducible workflow. These tools are part of the [ready4 framework for transparent, reusable and updatable health economic models](https://www.ready4-dev.com).
+`ready4` provides a simple syntax that is used by all model modules developed with the [`ready4` framework](https://www.ready4-dev.com/).
 
-### Load required libraries
+## Use
 
-We first begin by loading the libraries we will require to implement this workflow.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4/'>ready4</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://ready4-dev.github.io/ready4show/'>ready4show</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/rstudio/bookdown'>bookdown</a></span><span class='o'>)</span></span>
-<span><span class='kr'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='o'>(</span><span class='nv'><a href='https://github.com/rstudio/rticles'>rticles</a></span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-### Set consent policy
-
-By default, methods in the `ready4show` package will request your consent before writing files to your machine. This is the safest option. However, as there are many files that need to be written locally for this program to execute, you can overwrite this default by supplying the value "Y" to methods with a `consent_1L_chr` argument.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>consent_1L_chr</span> <span class='o'>&lt;-</span> <span class='s'>""</span> <span class='c'># Default value - asks for consent prior to writing each file.</span></span></code></pre>
-
-</div>
+A table that itemises `ready4` commands along with examples of how these commands are used can be ingested from a periodically updated database using `get_methods_tb`. In the below example we will search for examples of where that syntax has been used by modules from the [readyforwhatsnext model](https://readyforwhatsnext.org/). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
 
 <div class="highlight">
 
 </div>
 
-### Create a synopsis of the manuscript to be authored
-
-To start with we create `X`, an instance of `Ready4showSynopsis`, a ready4 module (S4 class). We can use `X` to record metadata about the manuscript to be authored (including details about the study being summarised and the title and format of the intended output).
-
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4show/reference/Ready4showSynopsis-class.html'>Ready4showSynopsis</a></span><span class='o'>(</span>background_1L_chr <span class='o'>=</span> <span class='s'>"Our study is entirely fictional."</span>,</span>
-<span>                        coi_1L_chr <span class='o'>=</span> <span class='s'>"None declared."</span>,</span>
-<span>                        conclusion_1L_chr <span class='o'>=</span> <span class='s'>"These fake results are not interesting."</span>,</span>
-<span>                        digits_int <span class='o'>=</span> <span class='m'>3L</span>,</span>
-<span>                        ethics_1L_chr <span class='o'>=</span> <span class='s'>"The study was reviewed and granted approval by Awesome University's Human Research Ethics Committee (1111111.1)."</span>,</span>
-<span>                        funding_1L_chr <span class='o'>=</span> <span class='s'>"The study was funded by Generous Benefactor."</span>,</span>
-<span>                        interval_chr <span class='o'>=</span> <span class='s'>"three months"</span>,</span>
-<span>                        keywords_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"entirely"</span>,<span class='s'>"fake"</span>,<span class='s'>"do"</span>, <span class='s'>"not"</span>,<span class='s'>"cite"</span><span class='o'>)</span>,</span>
-<span>                        outp_formats_chr <span class='o'>=</span> <span class='s'>"PDF"</span>,</span>
-<span>                        sample_desc_1L_chr <span class='o'>=</span> <span class='s'>"The study sample is fake data that pretends to be young people aged 12 to 25 years who attended Australian primary care services for mental health related needs between November 2019 to August 2020."</span>,</span>
-<span>                        title_1L_chr <span class='o'>=</span> <span class='s'>"A hypothetical study using fake data"</span><span class='o'>)</span></span></code></pre>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>x</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_methods_tb.html'>get_methods_tb</a></span><span class='o'>(</span>gh_repo_1L_chr <span class='o'>=</span> <span class='s'>"ready4-dev/ready4"</span><span class='o'>)</span></span></code></pre>
 
 </div>
 
-### Add authorship details
+### Core commands
 
-Authorship details can be added to slots of `X` that contain `ready4show_authors` and `ready4show_instututes` ready4 sub-modules.
-
-As we can see from the below call to `exhibitSlot`, `X` was created with no authorship information.
+A HTML table of `ready4`'s core commands and examples of the use of each command can be displayed using the `print_methods` function, using the `return_1L_chr = "core"` argument.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>            <span class='s'>"authors_r3"</span>,</span>
-<span>            scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_methods.html'>print_methods</a></span><span class='o'>(</span><span class='nv'>x</span>,</span>
+<span>              return_1L_chr <span class='o'>=</span> <span class='s'>"core"</span>,</span>
+<span>              scroll_width_1L_chr <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span> </span>
 </code></pre>
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-First-name
+Method
 </th>
 <th style="text-align:left;">
-Middle-name
+Purpose
 </th>
 <th style="text-align:left;">
-Last-name
-</th>
-<th style="text-align:left;">
-Title
-</th>
-<th style="text-align:left;">
-Qualifications
-</th>
-<th style="text-align:left;">
-Institutes
-</th>
-<th style="text-align:left;">
-Sequence Position
-</th>
-<th style="text-align:left;">
-Corresponding
-</th>
-<th style="text-align:left;">
-Email
-</th>
-<th style="text-align:left;">
-Joint-first
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-</tr>
-</tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
-</table>
-
-</div>
-
-</div>
-
-We can add details on each author by repeated calls to the `renewSlot` method.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"authors_r3"</span>,</span>
-<span>          first_nm_chr <span class='o'>=</span> <span class='s'>"Alejandra"</span>,</span>
-<span>          middle_nm_chr <span class='o'>=</span> <span class='s'>"Rocio"</span>,</span>
-<span>          last_nm_chr <span class='o'>=</span> <span class='s'>"Scienceace"</span>,</span>
-<span>          title_chr <span class='o'>=</span> <span class='s'>"Dr"</span>,</span>
-<span>          qualifications_chr <span class='o'>=</span> <span class='s'>"MD, PhD"</span>,</span>
-<span>          institute_chr <span class='o'>=</span> <span class='s'>"Institute_A, Institute_B"</span>,</span>
-<span>          sequence_int <span class='o'>=</span> <span class='m'>1</span>,</span>
-<span>          is_corresponding_lgl <span class='o'>=</span> <span class='kc'>T</span>,</span>
-<span>          email_chr <span class='o'>=</span> <span class='s'>"fake_email@fake_institute.com"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"authors_r3"</span>,</span>
-<span>            first_nm_chr <span class='o'>=</span> <span class='s'>"Fionn"</span>,</span>
-<span>            middle_nm_chr <span class='o'>=</span> <span class='s'>"Seamus"</span>,</span>
-<span>            last_nm_chr <span class='o'>=</span> <span class='s'>"Researchchamp"</span>,</span>
-<span>            title_chr <span class='o'>=</span> <span class='s'>"Prof"</span>,</span>
-<span>            qualifications_chr <span class='o'>=</span> <span class='s'>"MSc, PhD"</span>,</span>
-<span>            institute_chr <span class='o'>=</span> <span class='s'>"Institute_C, Institute_B"</span>,</span>
-<span>            sequence_int <span class='o'>=</span> <span class='m'>2</span>,</span>
-<span>            email_chr <span class='o'>=</span> <span class='s'>"fake_email@unreal_institute.com"</span><span class='o'>)</span> </span></code></pre>
-
-</div>
-
-The updated authorship table can now be inspected.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"authors_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
-</code></pre>
-
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
-
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-First-name
-</th>
-<th style="text-align:right;">
-Middle-name
-</th>
-<th style="text-align:left;">
-Last-name
-</th>
-<th style="text-align:right;">
-Title
-</th>
-<th style="text-align:left;">
-Qualifications
-</th>
-<th style="text-align:right;">
-Institutes
-</th>
-<th style="text-align:left;">
-Sequence Position
-</th>
-<th style="text-align:right;">
-Corresponding
-</th>
-<th style="text-align:left;">
-Email
-</th>
-<th style="text-align:right;">
-Joint-first
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Alejandra
-</td>
-<td style="text-align:right;">
-Rocio
+<a href="https://ready4-dev.github.io/ready4/reference/author-methods.html"> author </a>
 </td>
 <td style="text-align:left;">
-Scienceace
-</td>
-<td style="text-align:right;">
-Dr
+Author and save files
 </td>
 <td style="text-align:left;">
-MD, PhD
-</td>
-<td style="text-align:right;">
-Institute_A, Institute_B
-</td>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-<td style="text-align:left;">
-<fake_email@fake>\_institute.com
-</td>
-<td style="text-align:right;">
-NA
+<a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/ready4pack/articles/V_01.html" style="     ">7</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Fionn
-</td>
-<td style="text-align:right;">
-Seamus
+<a href="https://ready4-dev.github.io/ready4/reference/characterize-methods.html"> characterize </a>
 </td>
 <td style="text-align:left;">
-Researchchamp
-</td>
-<td style="text-align:right;">
-Prof
+Characterize model module data by generating (tabular) descriptive statistics
 </td>
 <td style="text-align:left;">
-MSc, PhD
 </td>
-<td style="text-align:right;">
-Institute_C, Institute_B
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/depict-methods.html"> depict </a>
 </td>
 <td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-NA
+Depict (plot) features of model module data
 </td>
 <td style="text-align:left;">
-<fake_email@unreal>\_institute.com
+<a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a>
 </td>
-<td style="text-align:right;">
-NA
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/enhance-methods.html"> enhance </a>
+</td>
+<td style="text-align:left;">
+Enhance a model module by adding new elements
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/exhibit-methods.html"> exhibit </a>
+</td>
+<td style="text-align:left;">
+Exhibit features of model module data by printing them to the R console
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/youthu/articles/V_01.html" style="     ">18</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/ingest-methods.html"> ingest </a>
+</td>
+<td style="text-align:left;">
+Ingest data
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_03.html" style="     ">3</a> , <a href="https://ready4-dev.github.io/ready4class/articles/V_01.html" style="     ">6</a>, <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/youthu/articles/V_01.html" style="     ">18</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/investigate-methods.html"> investigate </a>
+</td>
+<td style="text-align:left;">
+Investigate solutions to an inverse problem
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/manufacture-methods.html"> manufacture </a>
+</td>
+<td style="text-align:left;">
+Manufacture a new object
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/metamorphose-methods.html"> metamorphose </a>
+</td>
+<td style="text-align:left;">
+Metamorphose a model module to a model module of a different (non-inheriting) class
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/procure-methods.html"> procure </a>
+</td>
+<td style="text-align:left;">
+Procure items from a dataset
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4fun/articles/V_01.html" style="     ">5</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/prognosticate-methods.html"> prognosticate </a>
+</td>
+<td style="text-align:left;">
+Prognosticate (make predictions) by solving a forward problem
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/ratify-methods.html"> ratify </a>
+</td>
+<td style="text-align:left;">
+Ratify that input or output data meet validity criteria
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/reckon-methods.html"> reckon </a>
+</td>
+<td style="text-align:left;">
+Reckon (calculate) a value
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/renew-methods.html"> renew </a>
+</td>
+<td style="text-align:left;">
+Renew (update) values
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/ready4use/articles/V_02.html" style="     ">2</a> , <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/share-methods.html"> share </a>
+</td>
+<td style="text-align:left;">
+Share data via an online repository
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4use/articles/V_01.html" style="     ">1</a> , <a href="https://ready4-dev.github.io/youthvars/articles/V_02.html" style="     ">13</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/scorz/articles/V_02.html" style="     ">15</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a>
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
 
 </div>
 
-We now need to add additional information for each author institute.
+### Applying commands to module "slots"
+
+Each of the "core" commands also has a "slot" version, which applies the command to a specified slot (a named element of a module). Two of these "slot" methods can also be used for additional purposes:
+
+-   [procureSlot](https://ready4-dev.github.io/ready4/reference/procureSlot-methods.html) is a "getter" method - its default behaviour is to return the value of a specified slot. If the argument `use_procure_mthd_1L_lgl = T` is included in the method call, `procureSlot` will instead apply the `procure` method to a specified slot.
+
+-   [renewSlot](https://ready4-dev.github.io/ready4/reference/procureSlot-methods.html) is a "setter" method - if any value other than "use_renew_mthd" (the default) is passed to the `new_val_xx` argument, that value will be assigned to the specified slot.
+
+A HTML table of slot commands and relevant examples can be displayed using the `print_methods` function, using the `return_1L_chr = "slot"` argument.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"institutes_r3"</span>,</span>
-<span>          short_name_chr <span class='o'>=</span> <span class='s'>"Institute_A"</span>, </span>
-<span>          long_name_chr <span class='o'>=</span> <span class='s'>"Awesome University, Shanghai"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>            short_name_chr <span class='o'>=</span> <span class='s'>"Institute_B"</span>, </span>
-<span>            long_name_chr <span class='o'>=</span> <span class='s'>"August Institution, London"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>            new_val_xx <span class='o'>=</span> <span class='s'>"use_renew_mthd"</span>,</span>
-<span>            short_name_chr <span class='o'>=</span> <span class='s'>"Institute_C"</span>, </span>
-<span>            long_name_chr <span class='o'>=</span> <span class='s'>"Highly Ranked Uni, Montreal"</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-The updated institutes table can now be inspected.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"institutes_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> </span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_methods.html'>print_methods</a></span><span class='o'>(</span><span class='nv'>x</span>,</span>
+<span>              return_1L_chr <span class='o'>=</span> <span class='s'>"slot"</span>,</span>
+<span>              scroll_width_1L_chr <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span></span>
 </code></pre>
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Reference
+Method
 </th>
-<th style="text-align:right;">
-Name
+<th style="text-align:left;">
+Purpose
+</th>
+<th style="text-align:left;">
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Institute_A
+<a href="https://ready4-dev.github.io/ready4/reference/authorSlot-methods.html"> authorSlot </a>
 </td>
-<td style="text-align:right;">
-Awesome University, Shanghai
+<td style="text-align:left;">
+Apply the author method to a model module slot
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Institute_B
+<a href="https://ready4-dev.github.io/ready4/reference/characterizeSlot-methods.html"> characterizeSlot </a>
 </td>
-<td style="text-align:right;">
-August Institution, London
+<td style="text-align:left;">
+Apply the characterize method to a model module slot
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Institute_C
+<a href="https://ready4-dev.github.io/ready4/reference/depictSlot-methods.html"> depictSlot </a>
 </td>
-<td style="text-align:right;">
-Highly Ranked Uni, Montreal
+<td style="text-align:left;">
+Apply the depict method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/enhanceSlot-methods.html"> enhanceSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the enhance method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html"> exhibitSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the exhibit method to a model module slot
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/ingestSlot-methods.html"> ingestSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the ingest method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/investigateSlot-methods.html"> investigateSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the investigate method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/manufactureSlot-methods.html"> manufactureSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the manufacture method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/metamorphoseSlot-methods.html"> metamorphoseSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the metamorphose method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/procureSlot-methods.html"> procureSlot </a>
+</td>
+<td style="text-align:left;">
+Procure (get) data from a slot
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/TTU/articles/V_01.html" style="     ">16</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/prognosticateSlot-methods.html"> prognosticateSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the prognosticate method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/ratifySlot-methods.html"> ratifySlot </a>
+</td>
+<td style="text-align:left;">
+Apply the ratify method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/reckonSlot-methods.html"> reckonSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the reckon method to a model module slot
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html"> renewSlot </a>
+</td>
+<td style="text-align:left;">
+Renew (set) the values of data in a module slot
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/scorz/articles/V_01.html" style="     ">14</a> , <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a> , <a href="https://ready4-dev.github.io/costly/articles/V_01.html" style="     ">19</a> , <a href="https://ready4-dev.github.io/costly/articles/V_02.html" style="     ">20</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/shareSlot-methods.html"> shareSlot </a>
+</td>
+<td style="text-align:left;">
+Apply the share method to a model module slot
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
 
 </div>
 
-### Add correspondences
+### Extended commands
 
-We can also add a look-up table about any changes we wish to make from the analysis code of how names of variables / parameters are presented in the manuscript text.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>               <span class='s'>"correspondences_r3"</span>,</span>
-<span>               old_nms_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"PHQ9"</span>, <span class='s'>"GAD7"</span><span class='o'>)</span>,</span>
-<span>               new_nms_chr <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='o'>(</span><span class='s'>"PHQ-9"</span>, <span class='s'>"GAD-7"</span><span class='o'>)</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-These edits can now be inspected with a call to `exhibitSlot`.
+Finally, there are a small number of other commands that are more general extensions of the core commands. Currently, these extended commands are all variants on the `author` command, with each extension specifying the type of output to be authored by the method. A HTML table of the extended generics bundled with `ready4` can be displayed using the `print_methods` function, using the `return_1L_chr = "extended"` argument.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/exhibitSlot-methods.html'>exhibitSlot</a></span><span class='o'>(</span><span class='s'>"correspondences_r3"</span>,</span>
-<span>              scroll_box_args_ls <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='o'>(</span>width <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span><span class='o'>)</span> <span class='c'># Add Exhibit Method</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_methods.html'>print_methods</a></span><span class='o'>(</span><span class='nv'>x</span>,</span>
+<span>              exclude_mthds_for_chr <span class='o'>=</span> <span class='s'>"Ready4Module"</span>,</span>
+<span>              return_1L_chr <span class='o'>=</span> <span class='s'>"extended"</span>,</span>
+<span>              scroll_width_1L_chr <span class='o'>=</span> <span class='s'>"100%"</span><span class='o'>)</span></span>
 </code></pre>
 
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 
-<table class=" lightable-paper lightable-hover lightable-paper" style="color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0; color: black; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
-Old name
+Method
 </th>
-<th style="text-align:right;">
-New name
+<th style="text-align:left;">
+Purpose
+</th>
+<th style="text-align:left;">
+Examples
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-PHQ9
+<a href="https://ready4-dev.github.io/ready4/reference/authorClasses-methods.html"> authorClasses </a>
 </td>
-<td style="text-align:right;">
-PHQ-9
+<td style="text-align:left;">
+Author and document classes
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-GAD7
+<a href="https://ready4-dev.github.io/ready4/reference/authorData-methods.html"> authorData </a>
 </td>
-<td style="text-align:right;">
-GAD-7
+<td style="text-align:left;">
+Author and document datasets
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>, <a href="https://ready4-dev.github.io/specific/articles/V_01.html" style="     ">17</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/authorFunctions-methods.html"> authorFunctions </a>
+</td>
+<td style="text-align:left;">
+Author and document functions
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4/reference/authorReport-methods.html"> authorReport </a>
+</td>
+<td style="text-align:left;">
+Author and save a report
+</td>
+<td style="text-align:left;">
+<a href="https://ready4-dev.github.io/ready4show/articles/V_01.html" style="     ">4</a>
 </td>
 </tr>
 </tbody>
-<tfoot>
-<tr>
-<td style="padding: 0; " colspan="100%">
-<sup></sup>
-</td>
-</tr>
-</tfoot>
 </table>
 
 </div>
-
-</div>
-
-### Specify output directory
-
-We now update `X` with details of the directory to which we wish to write the manuscript we are authoring and all its supporting files.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>X</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>               <span class='s'>"a_Ready4showPaths@outp_data_dir_1L_chr"</span>,</span>
-<span>               new_val_xx <span class='o'>=</span> <span class='nf'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='o'>(</span><span class='o'>)</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-### Create dataset of literate programming files
-
-Our next step is to copy a dataset of files that can implement a literate program to generate our manuscript. If you have a template you wish to work with, you can specify its local path using the `a_Ready4showPaths@mkdn_source_dir_1L_chr` slot of the `X`. Skip this step if you wish to use [the default markdown dataset](https://github.com/ready4-dev/ms_tmpl), which leverages popular rmarkdown toolkits such as `bookdown` and `rticles`.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>## Not run</span></span>
-<span><span class='c'># procureSlot(X,</span></span>
-<span><span class='c'>#             "a_Ready4showPaths@mkdn_source_dir_1L_chr",</span></span>
-<span><span class='c'>#             new_val_xx  = "PATH TO MARKDOWN DATASET")</span></span></code></pre>
-
-</div>
-
-We create the dataset copy with the `authorData` method.
-
-<div class="highlight">
-
-</div>
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorData-methods.html'>authorData</a></span><span class='o'>(</span><span class='nv'>X</span>, consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-Having created a local copy of the template literate program files dataset, it is now possible to manually edit the markdown files to author the manuscript. However, in this example we are skipping this step and will continue to use the unedited template in conjunction with the metadata we have specified in `X`. We combine the two to author a manuscript using the `authorReport` method.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span><span class='nv'>X</span>, consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-If we wish, we can now ammend `X` and then rerun the `authorReport` method to generate Word and HTML versions of the manuscript.
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"outp_formats_chr"</span>,</span>
-<span>          new_val_xx <span class='o'>=</span> <span class='s'>"Word"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span>consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-<div class="highlight">
-
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/renewSlot-methods.html'>renewSlot</a></span><span class='o'>(</span><span class='nv'>X</span>,</span>
-<span>          <span class='s'>"outp_formats_chr"</span>,</span>
-<span>          new_val_xx <span class='o'>=</span> <span class='s'>"HTML"</span><span class='o'>)</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span>  <span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/authorReport-methods.html'>authorReport</a></span><span class='o'>(</span>consent_1L_chr <span class='o'>=</span> <span class='nv'>consent_1L_chr</span><span class='o'>)</span></span></code></pre>
-
-</div>
-
-<div class="highlight">
-
-</div>
-
-The outputed files are as follows:
-
--   [PDF version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.pdf) (and [LaTeX file that generated it](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.tex))
--   [Word version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.docx)
--   [HTML version](https://github.com/ready4-dev/ready4show/releases/download/Documentation_0.0/Manuscript.html)
-
-<div class="highlight">
 
 </div>
 
