@@ -1,7 +1,7 @@
 ---
 title: "Find examples of how model modules are used"
 linkTitle: "Examples"
-date: "2024-06-11"
+date: "2024-06-13"
 description: "Tools from the ready4 R library can help find details about the use of individual model modules."
 weight: 92
 tags:
@@ -386,5 +386,5 @@ Develop, Use and Share Unit Cost Datasets for Health Economic
 
 ## Related content
 
-Details of how to search for details on individual modules is described in [another article](https://ready4-dev.github.io/ready4/articles/V_05.html).
+Details of how to search for details on individual modules is described in [another article](https://www.ready4-dev.com/docs/tutorials/use-models/finding-modules/modules/).
 

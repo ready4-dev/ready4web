@@ -1,7 +1,7 @@
 ---
 title: "Template module"
 linkTitle: "Template"
-date: "2024-06-11"
+date: "2024-06-13"
 description: "ready4 provides a template to facilitate modular implementation of health economic models."
 weight: 1
 aliases:
@@ -48,7 +48,7 @@ A potentially attractive approach to modelling complex health systems is to begi
 
 ## Implementation
 
-The `ready4` package provides foundational elements of a [prototype software framework](https://www.ready4-dev.com/) to support the development of modular and open-source computational health economic models using R. Modular model development is enabled by the [encapsulation and inheritance features of Object Oriented Programming (OOP)](https://www.ready4-dev.com/docs/framework/implementation/paradigm/object-oriented/). Specifically, `ready4` uses two of R's systems for implementing OOP - S3 and S4. An in-depth explanation of R's different class system is beyond the scope of this article, but is explored in [Hadley Wickham's Advanced R handbook](https://adv-r.hadley.nz/oo.html). However, it is useful to know some very high level information about S3 and S4 classes:
+The `ready4` facilitates modular model development by supplying a template module that enables model developers to avail of the [encapsulation and inheritance features of Object Oriented Programming (OOP)](https://www.ready4-dev.com/docs/framework/implementation/paradigm/object-oriented/). The [ready4 framework](https://www.ready4-dev.com/) uses two of R's systems for implementing OOP - S3 and S4. An in-depth explanation of R's different class system is beyond the scope of this article, but is explored in [Hadley Wickham's Advanced R handbook](https://adv-r.hadley.nz/oo.html). However, it is useful to know some very high level information about S3 and S4 classes:
 
 -   S4 classes are frequently said to be "formal", "strict" or "rigorous". The elements of an S4 class are called slots and the type of data that each slot is allowed to contain is specified in the class definition. An S4 class can be comprised of slots that contain different types of data (e.g. a slot that contains a character vector and another slot that contains tabular data).
 
@@ -79,7 +79,7 @@ However, if we inspect `X` we can see it is of limited use as it contains no dat
 
 </div>
 
-The `Ready4Module` class is therefore not intended to be called directly. Instead, the purpose of `Ready4Module` is to be the parent class of other model modules. Prototype tools for authoring modules from this template are described [here](https://www.ready4-dev.com/docs/tutorials/authoring-modules/).
+The `Ready4Module` class is therefore not intended to be called directly. Instead, the purpose of `Ready4Module` is to be the parent class of other model modules. Prototype tools for authoring modules from this template are described [here](https://www.ready4-dev.com/docs/tutorials/develop-models/authoring-modules/).
 
 <div class="card border-primary mb-3" style="max-width: 20rem;">
 

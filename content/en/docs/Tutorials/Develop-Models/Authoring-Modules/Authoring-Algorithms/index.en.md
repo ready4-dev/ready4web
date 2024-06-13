@@ -1,7 +1,7 @@
 ---
 title: "Authoring model algorithms"
 linkTitle: "Algorithms"
-date: "2024-06-11"
+date: "2024-06-13"
 description: "The ready4fun R package supports standardised approaches to code authoring that facilitate partial automation of the documenting of model algorithms."
 weight: 64
 aliases:
@@ -610,8 +610,7 @@ Further information about the purpose of a function and the nature of its inputs
 
 <pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nv'>z</span> <span class='o'>&lt;-</span> <span class='nf'><a href='https://ready4-dev.github.io/ready4fun/reference/get_abbrs.html'>get_abbrs</a></span><span class='o'>(</span>gh_repo_1L_chr <span class='o'>=</span> <span class='s'>"ready4-dev/ready4"</span><span class='o'>)</span></span>
 <span><span class='nf'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='o'>(</span><span class='nv'>z</span><span class='o'>)</span></span>
-<span><span class='c'>#&gt; [1] "ready4fun_abbreviations" "tbl_df"                  "tbl"                    </span></span>
-<span><span class='c'>#&gt; [4] "data.frame"</span></span>
+<span><span class='c'>#&gt; [1] "ready4fun_abbreviations" "tbl_df"                  "tbl"                     "data.frame"</span></span>
 <span></span></code></pre>
 
 </div>
