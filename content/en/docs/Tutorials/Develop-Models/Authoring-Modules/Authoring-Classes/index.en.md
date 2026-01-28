@@ -1,7 +1,7 @@
 ---
 title: "Authoring model data structures"
 linkTitle: "Data structures"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "The ready4class R package supports partially automated and standardised workflows for defining the data structures to be used in computational models."
 weight: 62
 aliases:
@@ -99,35 +99,16 @@ Is Old Class
 <tbody>
 <tr>
 <td style="text-align:left;">
-TTUSynopsis
+AusACT
 </td>
 <td style="text-align:right;">
-TTUSynopsis()
+aus::AusACT()
 </td>
 <td style="text-align:right;">
-TTU
+aus
 </td>
 <td style="text-align:right;">
-TTUSynopsis
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-TTUReports
-</td>
-<td style="text-align:right;">
-TTUReports()
-</td>
-<td style="text-align:right;">
-TTU
-</td>
-<td style="text-align:right;">
-TTUReports
+AusACT
 </td>
 <td style="text-align:right;">
 </td>
@@ -137,16 +118,16 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-TTUProject
+AusHeadspace
 </td>
 <td style="text-align:right;">
-TTUProject()
+aus::AusHeadspace()
 </td>
 <td style="text-align:right;">
-TTU
+aus
 </td>
 <td style="text-align:right;">
-TTUProject
+AusHeadspace
 </td>
 <td style="text-align:right;">
 </td>
@@ -194,25 +175,6 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-AusHeadspace
-</td>
-<td style="text-align:right;">
-aus::AusHeadspace()
-</td>
-<td style="text-align:right;">
-aus
-</td>
-<td style="text-align:right;">
-AusHeadspace
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 AusProjections
 </td>
 <td style="text-align:right;">
@@ -251,18 +213,19 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-AusACT
+POSIXt
 </td>
 <td style="text-align:right;">
-aus::AusACT()
+.POSIXct(NA_character\_)
 </td>
 <td style="text-align:right;">
-aus
+base
 </td>
 <td style="text-align:right;">
-AusACT
+.POSIXct
 </td>
 <td style="text-align:right;">
+NA_character\_
 </td>
 <td style="text-align:right;">
 FALSE
@@ -385,76 +348,18 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-POSIXt
+function
 </td>
 <td style="text-align:right;">
-.POSIXct(NA_character\_)
+function() NULL
 </td>
 <td style="text-align:right;">
 base
 </td>
 <td style="text-align:right;">
-.POSIXct
 </td>
 <td style="text-align:right;">
-NA_character\_
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CostlySource
-</td>
-<td style="text-align:right;">
-costly::CostlySource()
-</td>
-<td style="text-align:right;">
-costly
-</td>
-<td style="text-align:right;">
-CostlySource
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CostlySeed
-</td>
-<td style="text-align:right;">
-costly::CostlySeed()
-</td>
-<td style="text-align:right;">
-costly
-</td>
-<td style="text-align:right;">
-CostlySeed
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CostlyStandards
-</td>
-<td style="text-align:right;">
-costly::CostlyStandards()
-</td>
-<td style="text-align:right;">
-costly
-</td>
-<td style="text-align:right;">
-CostlyStandards
-</td>
-<td style="text-align:right;">
+function() NULL
 </td>
 <td style="text-align:right;">
 FALSE
@@ -519,6 +424,63 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
+CostlySeed
+</td>
+<td style="text-align:right;">
+costly::CostlySeed()
+</td>
+<td style="text-align:right;">
+costly
+</td>
+<td style="text-align:right;">
+CostlySeed
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlySource
+</td>
+<td style="text-align:right;">
+costly::CostlySource()
+</td>
+<td style="text-align:right;">
+costly
+</td>
+<td style="text-align:right;">
+CostlySource
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlyStandards
+</td>
+<td style="text-align:right;">
+costly::CostlyStandards()
+</td>
+<td style="text-align:right;">
+costly
+</td>
+<td style="text-align:right;">
+CostlyStandards
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 dfidx
 </td>
 <td style="text-align:right;">
@@ -539,10 +501,29 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
+Period
+</td>
+<td style="text-align:right;">
+lubridate::period()
+</td>
+<td style="text-align:right;">
+lubridate
+</td>
+<td style="text-align:right;">
+period
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 Ready4Module
 </td>
 <td style="text-align:right;">
-Ready4Module()
+ready4::Ready4Module()
 </td>
 <td style="text-align:right;">
 ready4
@@ -561,13 +542,32 @@ FALSE
 Ready4Private
 </td>
 <td style="text-align:right;">
-Ready4Private()
+ready4::Ready4Private()
 </td>
 <td style="text-align:right;">
 ready4
 </td>
 <td style="text-align:right;">
 Ready4Private
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4Project
+</td>
+<td style="text-align:right;">
+ready4::Ready4Project()
+</td>
+<td style="text-align:right;">
+ready4
+</td>
+<td style="text-align:right;">
+Ready4Project
 </td>
 <td style="text-align:right;">
 </td>
@@ -580,7 +580,7 @@ FALSE
 Ready4Public
 </td>
 <td style="text-align:right;">
-Ready4Public()
+ready4::Ready4Public()
 </td>
 <td style="text-align:right;">
 ready4
@@ -615,25 +615,6 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4class_pt_lup
-</td>
-<td style="text-align:right;">
-ready4class::ready4class_pt_lup()
-</td>
-<td style="text-align:right;">
-ready4class
-</td>
-<td style="text-align:right;">
-ready4class_pt_lup
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 ready4class_manifest
 </td>
 <td style="text-align:right;">
@@ -653,16 +634,16 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4fun_badges
+ready4class_pt_lup
 </td>
 <td style="text-align:right;">
-ready4fun::ready4fun_badges()
+ready4class::ready4class_pt_lup()
 </td>
 <td style="text-align:right;">
-ready4fun
+ready4class
 </td>
 <td style="text-align:right;">
-ready4fun_badges
+ready4class_pt_lup
 </td>
 <td style="text-align:right;">
 </td>
@@ -691,16 +672,16 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4fun_objects
+ready4fun_badges
 </td>
 <td style="text-align:right;">
-ready4fun::ready4fun_objects()
+ready4fun::ready4fun_badges()
 </td>
 <td style="text-align:right;">
 ready4fun
 </td>
 <td style="text-align:right;">
-ready4fun_objects
+ready4fun_badges
 </td>
 <td style="text-align:right;">
 </td>
@@ -710,16 +691,35 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4fun_functions
+ready4fun_dataset
 </td>
 <td style="text-align:right;">
-ready4fun::ready4fun_functions()
+ready4fun::ready4fun_dataset()
 </td>
 <td style="text-align:right;">
 ready4fun
 </td>
 <td style="text-align:right;">
-ready4fun_functions
+ready4fun_dataset
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_description
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_description()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_description
 </td>
 <td style="text-align:right;">
 </td>
@@ -748,16 +748,35 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4fun_description
+ready4fun_functions
 </td>
 <td style="text-align:right;">
-ready4fun::ready4fun_description()
+ready4fun::ready4fun_functions()
 </td>
 <td style="text-align:right;">
 ready4fun
 </td>
 <td style="text-align:right;">
-ready4fun_description
+ready4fun_functions
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ready4fun_manifest
+</td>
+<td style="text-align:right;">
+ready4fun::ready4fun_manifest()
+</td>
+<td style="text-align:right;">
+ready4fun
+</td>
+<td style="text-align:right;">
+ready4fun_manifest
 </td>
 <td style="text-align:right;">
 </td>
@@ -805,35 +824,16 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-ready4fun_manifest
+ready4fun_objects
 </td>
 <td style="text-align:right;">
-ready4fun::ready4fun_manifest()
-</td>
-<td style="text-align:right;">
-ready4fun
-</td>
-<td style="text-align:right;">
-ready4fun_manifest
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ready4fun_dataset
-</td>
-<td style="text-align:right;">
-ready4fun::ready4fun_dataset()
+ready4fun::ready4fun_objects()
 </td>
 <td style="text-align:right;">
 ready4fun
 </td>
 <td style="text-align:right;">
-ready4fun_dataset
+ready4fun_objects
 </td>
 <td style="text-align:right;">
 </td>
@@ -1338,6 +1338,234 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
+SpecificConverter
+</td>
+<td style="text-align:right;">
+specific::SpecificConverter()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificConverter
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificFixed
+</td>
+<td style="text-align:right;">
+specific::SpecificFixed()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificFixed
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificInitiator
+</td>
+<td style="text-align:right;">
+specific::SpecificInitiator()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificInitiator
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificMixed
+</td>
+<td style="text-align:right;">
+specific::SpecificMixed()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificMixed
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificModels
+</td>
+<td style="text-align:right;">
+specific::SpecificModels()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificModels
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificParameters
+</td>
+<td style="text-align:right;">
+specific::SpecificParameters()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificParameters
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificPredictors
+</td>
+<td style="text-align:right;">
+specific::SpecificPredictors()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificPredictors
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificPrivate
+</td>
+<td style="text-align:right;">
+specific::SpecificPrivate()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificPrivate
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificProject
+</td>
+<td style="text-align:right;">
+specific::SpecificProject()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificProject
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificResults
+</td>
+<td style="text-align:right;">
+specific::SpecificResults()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificResults
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificShareable
+</td>
+<td style="text-align:right;">
+specific::SpecificShareable()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificShareable
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SpecificSynopsis
+</td>
+<td style="text-align:right;">
+specific::SpecificSynopsis()
+</td>
+<td style="text-align:right;">
+specific
+</td>
+<td style="text-align:right;">
+SpecificSynopsis
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 specific_models
 </td>
 <td style="text-align:right;">
@@ -1376,234 +1604,6 @@ TRUE
 </tr>
 <tr>
 <td style="text-align:left;">
-SpecificParameters
-</td>
-<td style="text-align:right;">
-specific::SpecificParameters()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificParameters
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificPrivate
-</td>
-<td style="text-align:right;">
-specific::SpecificPrivate()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificPrivate
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificShareable
-</td>
-<td style="text-align:right;">
-specific::SpecificShareable()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificShareable
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificResults
-</td>
-<td style="text-align:right;">
-specific::SpecificResults()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificResults
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificProject
-</td>
-<td style="text-align:right;">
-specific::SpecificProject()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificProject
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificInitiator
-</td>
-<td style="text-align:right;">
-specific::SpecificInitiator()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificInitiator
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificModels
-</td>
-<td style="text-align:right;">
-specific::SpecificModels()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificModels
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificPredictors
-</td>
-<td style="text-align:right;">
-specific::SpecificPredictors()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificPredictors
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificFixed
-</td>
-<td style="text-align:right;">
-specific::SpecificFixed()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificFixed
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificMixed
-</td>
-<td style="text-align:right;">
-specific::SpecificMixed()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificMixed
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificConverter
-</td>
-<td style="text-align:right;">
-specific::SpecificConverter()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificConverter
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-SpecificSynopsis
-</td>
-<td style="text-align:right;">
-specific::SpecificSynopsis()
-</td>
-<td style="text-align:right;">
-specific
-</td>
-<td style="text-align:right;">
-SpecificSynopsis
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 tbl_df
 </td>
 <td style="text-align:right;">
@@ -1623,192 +1623,154 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_parameters
+tbl_ts
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_parameters()
+tsibble::tsibble()
 </td>
 <td style="text-align:right;">
-vicinity
+tsibble
 </td>
 <td style="text-align:right;">
-vicinity_parameters
+tsibble
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_values
+TTUProject
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_values()
+TTU::TTUProject()
 </td>
 <td style="text-align:right;">
-vicinity
+TTU
 </td>
 <td style="text-align:right;">
-vicinity_values
+TTUProject
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_abbreviations
+TTUReports
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_abbreviations()
+TTU::TTUReports()
 </td>
 <td style="text-align:right;">
-vicinity
+TTU
 </td>
 <td style="text-align:right;">
-vicinity_abbreviations
+TTUReports
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_processed
+TTUSynopsis
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_processed()
+TTU::TTUSynopsis()
 </td>
 <td style="text-align:right;">
-vicinity
+TTU
 </td>
 <td style="text-align:right;">
-vicinity_processed
+TTUSynopsis
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_raw
+VicinityArguments
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_raw()
+vicinity::VicinityArguments()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-vicinity_raw
+VicinityArguments
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_resolutions
+VicinityLocal
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_resolutions()
+vicinity::VicinityLocal()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-vicinity_resolutions
+VicinityLocal
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_points
+VicinityLocalProcessed
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_points()
+vicinity::VicinityLocalProcessed()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-vicinity_points
+VicinityLocalProcessed
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-vicinity_templates
+VicinityLocalRaw
 </td>
 <td style="text-align:right;">
-vicinity::vicinity_templates()
-</td>
-<td style="text-align:right;">
-vicinity
-</td>
-<td style="text-align:right;">
-vicinity_templates
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-vicinity_identifiers
-</td>
-<td style="text-align:right;">
-vicinity::vicinity_identifiers()
+vicinity::VicinityLocalRaw()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-vicinity_identifiers
+VicinityLocalRaw
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-TRUE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-vicinity_mapes
-</td>
-<td style="text-align:right;">
-vicinity::vicinity_mapes()
-</td>
-<td style="text-align:right;">
-vicinity
-</td>
-<td style="text-align:right;">
-vicinity_mapes
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
@@ -1851,25 +1813,6 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-VicinityMesoRegion
-</td>
-<td style="text-align:right;">
-vicinity::VicinityMesoRegion()
-</td>
-<td style="text-align:right;">
-vicinity
-</td>
-<td style="text-align:right;">
-VicinityMesoRegion
-</td>
-<td style="text-align:right;">
-</td>
-<td style="text-align:right;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 VicinityMesoArea
 </td>
 <td style="text-align:right;">
@@ -1880,6 +1823,25 @@ vicinity
 </td>
 <td style="text-align:right;">
 VicinityMesoArea
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VicinityMesoRegion
+</td>
+<td style="text-align:right;">
+vicinity::VicinityMesoRegion()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+VicinityMesoRegion
 </td>
 <td style="text-align:right;">
 </td>
@@ -1946,78 +1908,192 @@ FALSE
 </tr>
 <tr>
 <td style="text-align:left;">
-VicinityArguments
+vicinity_abbreviations
 </td>
 <td style="text-align:right;">
-vicinity::VicinityArguments()
+vicinity::vicinity_abbreviations()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-VicinityArguments
+vicinity_abbreviations
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-VicinityLocal
+vicinity_identifiers
 </td>
 <td style="text-align:right;">
-vicinity::VicinityLocal()
+vicinity::vicinity_identifiers()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-VicinityLocal
+vicinity_identifiers
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-VicinityLocalRaw
+vicinity_mapes
 </td>
 <td style="text-align:right;">
-vicinity::VicinityLocalRaw()
+vicinity::vicinity_mapes()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-VicinityLocalRaw
+vicinity_mapes
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-FALSE
+TRUE
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-VicinityLocalProcessed
+vicinity_parameters
 </td>
 <td style="text-align:right;">
-vicinity::VicinityLocalProcessed()
+vicinity::vicinity_parameters()
 </td>
 <td style="text-align:right;">
 vicinity
 </td>
 <td style="text-align:right;">
-VicinityLocalProcessed
+vicinity_parameters
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-FALSE
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_points
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_points()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_points
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_processed
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_processed()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_processed
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_raw
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_raw()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_raw
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_resolutions
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_resolutions()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_resolutions
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_templates
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_templates()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_templates
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vicinity_values
+</td>
+<td style="text-align:right;">
+vicinity::vicinity_values()
+</td>
+<td style="text-align:right;">
+vicinity
+</td>
+<td style="text-align:right;">
+vicinity_values
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+TRUE
 </td>
 </tr>
 <tr>
@@ -2298,6 +2374,82 @@ youthvars
 </td>
 <td style="text-align:right;">
 YouthvarsSeries
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicAlgorithms
+</td>
+<td style="text-align:right;">
+MimicAlgorithms()
+</td>
+<td style="text-align:right;">
+mimic
+</td>
+<td style="text-align:right;">
+MimicAlgorithms
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicInputs
+</td>
+<td style="text-align:right;">
+MimicInputs()
+</td>
+<td style="text-align:right;">
+mimic
+</td>
+<td style="text-align:right;">
+MimicInputs
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicRepos
+</td>
+<td style="text-align:right;">
+MimicRepos()
+</td>
+<td style="text-align:right;">
+mimic
+</td>
+<td style="text-align:right;">
+MimicRepos
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicConfiguration
+</td>
+<td style="text-align:right;">
+MimicConfiguration()
+</td>
+<td style="text-align:right;">
+mimic
+</td>
+<td style="text-align:right;">
+MimicConfiguration
 </td>
 <td style="text-align:right;">
 </td>

@@ -1,7 +1,7 @@
 ---
 title: "Share data via online repositories"
 linkTitle: "Share"
-date: "2024-06-08"
+date: "2026-01-28"
 description: "  The retrieval and dissemination of data from online data repositories is an essential enabler of open source modelling. This tutorial describes how a module from the ready4use R package can help you to manage this process."
 aliases:
 - /docs/framework/use/authoring-data/share-data

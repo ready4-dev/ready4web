@@ -1,7 +1,7 @@
 ---
 title: "Authoring model algorithms"
 linkTitle: "Algorithms"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "The ready4fun R package supports standardised approaches to code authoring that facilitate partial automation of the documenting of model algorithms."
 weight: 64
 aliases:
@@ -588,6 +588,14 @@ tb
 tibble
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+tsb
+</td>
+<td style="text-align:right;">
+tsibble
+</td>
+</tr>
 </tbody>
 <tfoot>
 <tr>
@@ -791,230 +799,6 @@ length ones
 </tr>
 <tr>
 <td style="text-align:left;">
-abbr
-</td>
-<td style="text-align:right;">
-abbreviation
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abbrs
-</td>
-<td style="text-align:right;">
-abbreviations
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abs
-</td>
-<td style="text-align:right;">
-absolute
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abss
-</td>
-<td style="text-align:right;">
-absolutes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-addl
-</td>
-<td style="text-align:right;">
-additional
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-addls
-</td>
-<td style="text-align:right;">
-additionals
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-adol
-</td>
-<td style="text-align:right;">
-adolescent
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-adol6d
-</td>
-<td style="text-align:right;">
-Assessment of Quality of Life Six Dimension (Adolescent version)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-adols
-</td>
-<td style="text-align:right;">
-adolescents
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-alg
-</td>
-<td style="text-align:right;">
-algorithm
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-algs
-</td>
-<td style="text-align:right;">
-algorithms
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-altv
-</td>
-<td style="text-align:right;">
-alternative
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-anlys
-</td>
-<td style="text-align:right;">
-analysis
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-anlyss
-</td>
-<td style="text-align:right;">
-analyses
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aqol
-</td>
-<td style="text-align:right;">
-Assessment of Quality of Life
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aqol6d
-</td>
-<td style="text-align:right;">
-Assessment of Quality of Life Six Dimension
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aqol6dU
-</td>
-<td style="text-align:right;">
-Assessment of Quality of Life Six Dimension Health Utility
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arg
-</td>
-<td style="text-align:right;">
-argument
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-args
-</td>
-<td style="text-align:right;">
-arguments
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arr
-</td>
-<td style="text-align:right;">
-array
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arr_ls
-</td>
-<td style="text-align:right;">
-list of arrays
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arr_r3
-</td>
-<td style="text-align:right;">
-ready4 submodule extension of array
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arr_r3_ls
-</td>
-<td style="text-align:right;">
-list of ready4 submodule extension of arrays
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-artl
-</td>
-<td style="text-align:right;">
-article
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-artls
-</td>
-<td style="text-align:right;">
-articles
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-att
-</td>
-<td style="text-align:right;">
-attribute
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-atts
-</td>
-<td style="text-align:right;">
-attributes
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aus
-</td>
-<td style="text-align:right;">
-Australia
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 AusACT
 </td>
 <td style="text-align:right;">
@@ -1035,6 +819,230 @@ AusLookup
 </td>
 <td style="text-align:right;">
 Lookup tables for Australian geometry and spatial attribute data.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusOrygen
+</td>
+<td style="text-align:right;">
+Meta data for constructing OYH Specialist Mental Health Catchment geometries.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusProjections
+</td>
+<td style="text-align:right;">
+Meta data for constructing custom Australian population projections boundary.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusTasmania
+</td>
+<td style="text-align:right;">
+Meta data for processing Tasmanian population projections.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlyCorrespondences
+</td>
+<td style="text-align:right;">
+Collection of input, standards definition and results datasets for projects to generate standardised costing datasets.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlyCountries
+</td>
+<td style="text-align:right;">
+Collection of input, standards definition and results datasets for projects to generate standardised country data for use in costing datasets.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlyCurrencies
+</td>
+<td style="text-align:right;">
+Collection of input, standards definition and results datasets for projects to generate standardised currency data for use in costing datasets.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlySeed
+</td>
+<td style="text-align:right;">
+Original (non-standardised) dataset (and metadata).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlySource
+</td>
+<td style="text-align:right;">
+Input dataset (and metadata) for generating standardised costing datasets.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CostlyStandards
+</td>
+<td style="text-align:right;">
+Dataset (and metadata) defining the allowable values of specified variables.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicAlgorithms
+</td>
+<td style="text-align:right;">
+The core set of functions that define simulation behaviour.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicConfiguration
+</td>
+<td style="text-align:right;">
+Configuration details for a simulation run.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicInputs
+</td>
+<td style="text-align:right;">
+Model input data (regression models, population and parameters).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MimicRepos
+</td>
+<td style="text-align:right;">
+Local and remote repositories for model input and output data.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OLS
+</td>
+<td style="text-align:right;">
+ordinary least squares
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OOS
+</td>
+<td style="text-align:right;">
+occasion of service
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OOSs
+</td>
+<td style="text-align:right;">
+occasion of services
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4showPaths
+</td>
+<td style="text-align:right;">
+Metadata about paths to Markdown input and output
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4showSynopsis
+</td>
+<td style="text-align:right;">
+Metadata about a scientific summary manuscript.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useArguments
+</td>
+<td style="text-align:right;">
+ready4 module class containing data to be passed to a function that constructs a spatial object from a lookup table.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useDyad
+</td>
+<td style="text-align:right;">
+A dataset and data dictionary pair.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useFiles
+</td>
+<td style="text-align:right;">
+ready4 module class defining data to be saved in local directory.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useIngest
+</td>
+<td style="text-align:right;">
+Ingested data and descriptive metadata.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4usePointer
+</td>
+<td style="text-align:right;">
+Metadata on local and remote data storage locations.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useProcessed
+</td>
+<td style="text-align:right;">
+ready4 module class defining data to be saved in local directory in a processed (R) format.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRaw
+</td>
+<td style="text-align:right;">
+ready4 module class defining data to be saved in local directory in a raw (unprocessed) format.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRecord
+</td>
+<td style="text-align:right;">
+Ingested data, descriptive metadata and provenance details.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ready4useRepos
+</td>
+<td style="text-align:right;">
+Metadata about online data repositories.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ScorzAqol6
+</td>
+<td style="text-align:right;">
+A dataset and the required information to implement an AQoL-6D scoring algorithm.
 </td>
 </tr>
 </tbody>

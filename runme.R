@@ -45,7 +45,7 @@ c("Collections","Modules") %>% # Do not evaluate write fns, add scroll text and 
                        consent_1L_chr = "Y",
                        is_rmd_1L_lgl = F)
 c("Ingest","Label-Data","Share-Data") %>%
-write_to_render_post(path_to_main_dir_1L_chr = paste0(project_dir_1L_chr,"/content/en/docs/tutorials/authoring-data"),
+write_to_render_post(path_to_main_dir_1L_chr = paste0(project_dir_1L_chr,"/content/en/docs/Tutorials/Use-Models/Authoring-Data"),
                      consent_1L_chr = "Y",
                      is_rmd_1L_lgl = F)
 # Render Analyses articles

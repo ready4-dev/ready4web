@@ -1,7 +1,7 @@
 ---
 title: "Provide end users with a simple and consistent syntax for using model modules"
 linkTitle: "Syntax"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "Methods are associated with ready4 modules using a novel syntax."
 weight: 2
 aliases:
@@ -46,21 +46,21 @@ Transparency is one of the underpinning principles of ethical modelling practice
 
 ## Implementation
 
-`ready4` provides a simple syntax that can be consistently applied to attach algorithms (methods) to [model modules](https://www.ready4-dev.com/docs/framework/implementation/modularity/). It does so by taking advantage of the [abstraction and polymorphism features of Object Oriented Programing](https://www.ready4-dev.com/docs/framework/implementation/paradigm/object-oriented/#transparent-computational-models) and R's use of generic functions. Generic functions don't implement algorithms themselves - their most salient features are a name and a high level description of the type of task that any method associated with that generic should perform. Whenever a developer creates a method for classes that use R's S4 and S3 systems [(the types used for model modules and sub-modules)](https://www.ready4-dev.com/docs/framework/implementation/modularity/#implementation), they can associate that method with a generic that has a description that is a good match for the algorithm being implemented.
+`ready4` provides a simple syntax that can be consistently applied to attach algorithms (methods) to [model modules](https://www.ready4-dev.com/docs/tutorials/develop-models/modularity/). It does so by taking advantage of the [abstraction and polymorphism features of Object Oriented Programming](https://www.ready4-dev.com/docs/framework/implementation/paradigm/object-oriented/#transparent-computational-models) and R's use of generic functions. Generic functions don't implement algorithms themselves - their most salient features are a name and a high level description of the type of task that any method associated with that generic should perform. Whenever a developer creates a method for classes that use R's S4 and S3 systems [(the types used for model modules and sub-modules)](https://www.ready4-dev.com/docs/tutorials/develop-models/modularity/#implementation), they can associate that method with a generic that has a description that is a good match for the algorithm being implemented.
 
 ## Use
 
 `ready4` includes a number of core generic functions which describe the main types of method to be implemented by model modules. These generics correspond exactly to the "core", "slot" and "extended" commands described in [another article](https://www.ready4-dev.com/docs/tutorials/use-models/authoring-analyses/commands/).
 
-Notably, the `ready4` package does not associate any core or extended methods with the `Ready4Module` [template module](https://www.ready4-dev.com/docs/framework/implementation/modularity/). Instead, model developers need to decide which core and extended generics they associate with the modules they derive from the `Ready4Module` template. This decision is typically made when authoring the methods associated with model modules.
+Notably, the `ready4` package does not associate any core or extended methods with the `Ready4Module` [template module](https://www.ready4-dev.com/docs/tutorials/develop-models/modularity/). Instead, model developers need to decide which core and extended generics they associate with the modules they derive from the `Ready4Module` template. This decision is typically made when authoring the methods associated with model modules.
 
 Currently, the only methods defined for `Ready4Module` are [slot-methods](https://www.ready4-dev.com/docs/tutorials/use-models/authoring-analyses/commands/). By default, these slot methods are inherited by all modules derived from the `Ready4Module` template. These methods can be itemised using the `get_methods` function.
 
 <div class="highlight">
 
 <pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/get_methods.html'>get_methods</a></span><span class='o'>(</span><span class='o'>)</span></span>
-<span><span class='c'>#&gt;  [1] "authorSlot"        "characterizeSlot"  "depictSlot"        "enhanceSlot"       "exhibitSlot"       "ingestSlot"        "investigateSlot"   "manufactureSlot"  </span></span>
-<span><span class='c'>#&gt;  [9] "metamorphoseSlot"  "procureSlot"       "prognosticateSlot" "ratifySlot"        "reckonSlot"        "renewSlot"         "shareSlot"</span></span>
+<span><span class='c'>#&gt;  [1] "authorSlot"        "characterizeSlot"  "depictSlot"        "enhanceSlot"       "exhibitSlot"       "ingestSlot"        "investigateSlot"   "manufactureSlot"   "metamorphoseSlot" </span></span>
+<span><span class='c'>#&gt; [10] "procureSlot"       "prognosticateSlot" "ratifySlot"        "reckonSlot"        "renewSlot"         "shareSlot"</span></span>
 <span></span></code></pre>
 
 </div>

@@ -1,7 +1,7 @@
 ---
 title: "Ingest data from an open access repository"
 linkTitle: "Ingest"
-date: "2024-06-08"
+date: "2026-01-28"
 description: "A tutorial from the Acumen website about using ready4 to search and retrieve data from the Australian Mental Health Systems Models Dataverse."
 weight: 91
 aliases:
@@ -166,7 +166,7 @@ We can itemise the data objects we have ingested with the following command.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt; [1] "ymh_clinical_dict_r3" "ymh_clinical_tb"      "eq5d_ds_dict"         "eq5d_ds_tb"           "ymh_phq_gad_tb"</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt; [1] "eq5d_ds_dict"         "eq5d_ds_tb"           "ymh_clinical_dict_r3" "ymh_clinical_tb"      "ymh_phq_gad_tb"</span></span>
 <span></span></code></pre>
 
 </div>
@@ -181,8 +181,10 @@ We can also see what metadata fields we have ingested.
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt;  [1] "id"                  "datasetId"           "datasetPersistentId" "storageIdentifier"   "versionNumber"       "versionMinorNumber"  "versionState"        "lastUpdateTime"      "releaseTime"         "createTime"         </span></span>
-<span><span class='c'>#&gt; [11] "publicationDate"     "citationDate"        "termsOfUse"          "fileAccessRequest"   "metadataBlocks"      "files"</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt;  [1] "id"                           "datasetId"                    "datasetPersistentId"          "datasetType"                  "storageIdentifier"            "versionNumber"               </span></span>
+<span><span class='c'>#&gt;  [7] "internalVersionNumber"        "versionMinorNumber"           "versionState"                 "latestVersionPublishingState" "deaccessionLink"              "lastUpdateTime"              </span></span>
+<span><span class='c'>#&gt; [13] "releaseTime"                  "createTime"                   "publicationDate"              "citationDate"                 "termsOfUse"                   "fileAccessRequest"           </span></span>
+<span><span class='c'>#&gt; [19] "metadataBlocks"               "files"</span></span>
 <span></span></code></pre>
 
 </div>
@@ -212,7 +214,7 @@ The metadata also contains descriptive information on each file in the Dataverse
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt; [1] "Synthetic (fake) population of young people with EQ-5D item responses, psychological distress and well-being and demographic variables. NOTE: This dataset was generated purely for the purposes of demonstrating generalised applications of utility scoring and utility mapping algorithms that we developed. It is not in any meaningful way representative of the likely true population distributions of its included variables. For this reason, it cannot be used as an input for any model designed to inform decision making."</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt; [1] "A synthetic (fake) dataset representing clients in an Australian primary youth mental health service. This dataset was generated from parameter values derived from a sample of 1107 clients of headspace services using a script that is also included in this dataset. The purpose of this synthetic dataset was to allow the replication code for a utility mapping study (see: https://doi.org/10.1101/2021.07.07.21260129) to be run by those lacking access to the original dataset. The dataset may also have some limited value as an input dataset for purely exploratory studies in simulation studies of headspace clients, as its source dataset was reasonably representative of the headpace client population. However, it should be noted that the algorithm that generated this dataset only captures aspects of the joint distributions of the psychological and health utility measures. Other sample characteristic variables (age, gender, etc) are only representative of the source dataset when considered in isolation, rather than jointly."</span></span>
 <span></span></code></pre>
 
 </div>
@@ -267,16 +269,17 @@ The output from an object specific call to the `ingest` method is the requested 
 <div class="highlight">
 
 <pre class='chroma'><code class='language-r' data-lang='r'><span><span class='c'>#&gt; <span style='color: #555555;'># A tibble: 6 × 43</span></span></span>
-<span><span class='c'>#&gt;   fkClientID    round    d_interview_date d_age d_gender d_sex_birth_s d_sexual_ori_s d_ATSI d_country_bir_s d_english_home d_english_native d_studying_working  d_relation_s s_centre c_p_diag_s c_clinical_staging_s k6_total phq9_total bads_total</span></span>
-<span><span class='c'>#&gt;   <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #555555; font-style: italic;'>&lt;fct&gt;</span>    <span style='color: #555555; font-style: italic;'>&lt;date&gt;</span>           <span style='color: #555555; font-style: italic;'>&lt;int&gt;</span> <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #555555; font-style: italic;'>&lt;fct&gt;</span>          <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>                   <span style='color: #555555; font-style: italic;'>&lt;int&gt;</span>      <span style='color: #555555; font-style: italic;'>&lt;int&gt;</span>      <span style='color: #555555; font-style: italic;'>&lt;int&gt;</span></span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>1</span> Participant_1 Baseline 2020-03-22          14 Male     Male          Heterosexual   No     Australia       Yes            Yes              Not studying or wo… In a relati… Southpo… Other      0-1a                        8          7         96</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>2</span> Participant_2 Baseline 2020-06-15          19 Female   Female        Heterosexual   Yes    Other           No             No               Studying only       In a relati… Regiona… Anxiety    0-1a                       13         13         63</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>3</span> Participant_3 Baseline 2020-08-20          21 Female   Female        Other          <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>              <span style='color: #BB0000;'>NA</span>             <span style='color: #BB0000;'>NA</span>               Studying only       Not in a re… Canberra Anxiety    1b                         12         17         72</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>4</span> Participant_4 Baseline 2020-05-23          12 Female   Female        Heterosexual   Yes    Other           No             No               Not studying or wo… In a relati… Southpo… Depressio… 2-4                        17         17         75</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>5</span> Participant_5 Baseline 2020-04-05          19 Male     Male          Heterosexual   Yes    Other           No             No               Not studying or wo… Not in a re… Southpo… Depressio… 0-1a                       12         22         82</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>6</span> Participant_6 Baseline 2020-06-09          19 Male     Male          Heterosexual   Yes    Other           No             No               Studying only       In a relati… Regiona… Anxiety    1b                         11          8        105</span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'># ℹ 24 more variables: gad7_total &lt;int&gt;, oasis_total &lt;int&gt;, scared_total &lt;int&gt;, c_sofas &lt;int&gt;, aqol6d_q1 &lt;int&gt;, aqol6d_q2 &lt;int&gt;, aqol6d_q3 &lt;int&gt;, aqol6d_q4 &lt;int&gt;, aqol6d_q5 &lt;int&gt;, aqol6d_q6 &lt;int&gt;, aqol6d_q7 &lt;int&gt;, aqol6d_q8 &lt;int&gt;,</span></span></span>
-<span><span class='c'>#&gt; <span style='color: #555555;'>#   aqol6d_q9 &lt;int&gt;, aqol6d_q10 &lt;int&gt;, aqol6d_q11 &lt;int&gt;, aqol6d_q12 &lt;int&gt;, aqol6d_q13 &lt;int&gt;, aqol6d_q14 &lt;int&gt;, aqol6d_q15 &lt;int&gt;, aqol6d_q16 &lt;int&gt;, aqol6d_q17 &lt;int&gt;, aqol6d_q18 &lt;int&gt;, aqol6d_q19 &lt;int&gt;, aqol6d_q20 &lt;int&gt;</span></span></span>
+<span><span class='c'>#&gt;   fkClientID    round   d_interview_date d_age d_gender d_sex_birth_s d_sexual_ori_s d_ATSI d_country_bir_s d_english_home d_english_native d_studying_working d_relation_s s_centre c_p_diag_s</span></span>
+<span><span class='c'>#&gt;   <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #555555; font-style: italic;'>&lt;fct&gt;</span>   <span style='color: #555555; font-style: italic;'>&lt;date&gt;</span>           <span style='color: #555555; font-style: italic;'>&lt;int&gt;</span> <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #555555; font-style: italic;'>&lt;fct&gt;</span>          <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>              <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #555555; font-style: italic;'>&lt;chr&gt;</span>     </span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>1</span> Participant_1 Baseli… 2020-03-22          14 Male     Male          Heterosexual   No     Australia       Yes            Yes              Not studying or w… In a relati… Southpo… Other     </span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>2</span> Participant_2 Baseli… 2020-06-15          19 Female   Female        Heterosexual   Yes    Other           No             No               Studying only      In a relati… Regiona… Anxiety   </span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>3</span> Participant_3 Baseli… 2020-08-20          21 Female   Female        Other          <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>              <span style='color: #BB0000;'>NA</span>             <span style='color: #BB0000;'>NA</span>               Studying only      Not in a re… Canberra Anxiety   </span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>4</span> Participant_4 Baseli… 2020-05-23          12 Female   Female        Heterosexual   Yes    Other           No             No               Not studying or w… In a relati… Southpo… Depressio…</span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>5</span> Participant_5 Baseli… 2020-04-05          19 Male     Male          Heterosexual   Yes    Other           No             No               Not studying or w… Not in a re… Southpo… Depressio…</span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>6</span> Participant_6 Baseli… 2020-06-09          19 Male     Male          Heterosexual   Yes    Other           No             No               Studying only      In a relati… Regiona… Anxiety   </span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'># ℹ 28 more variables: c_clinical_staging_s &lt;chr&gt;, k6_total &lt;int&gt;, phq9_total &lt;int&gt;, bads_total &lt;int&gt;, gad7_total &lt;int&gt;, oasis_total &lt;int&gt;, scared_total &lt;int&gt;, c_sofas &lt;int&gt;,</span></span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>#   aqol6d_q1 &lt;int&gt;, aqol6d_q2 &lt;int&gt;, aqol6d_q3 &lt;int&gt;, aqol6d_q4 &lt;int&gt;, aqol6d_q5 &lt;int&gt;, aqol6d_q6 &lt;int&gt;, aqol6d_q7 &lt;int&gt;, aqol6d_q8 &lt;int&gt;, aqol6d_q9 &lt;int&gt;, aqol6d_q10 &lt;int&gt;,</span></span></span>
+<span><span class='c'>#&gt; <span style='color: #555555;'>#   aqol6d_q11 &lt;int&gt;, aqol6d_q12 &lt;int&gt;, aqol6d_q13 &lt;int&gt;, aqol6d_q14 &lt;int&gt;, aqol6d_q15 &lt;int&gt;, aqol6d_q16 &lt;int&gt;, aqol6d_q17 &lt;int&gt;, aqol6d_q18 &lt;int&gt;, aqol6d_q19 &lt;int&gt;, aqol6d_q20 &lt;int&gt;</span></span></span>
 <span></span></code></pre>
 
 </div>

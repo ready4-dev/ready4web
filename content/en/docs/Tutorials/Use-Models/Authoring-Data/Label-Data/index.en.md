@@ -1,7 +1,7 @@
 ---
 title: "Add a data dictionary to a dataset"
 linkTitle: "Label"
-date: "2024-06-08"
+date: "2026-01-28"
 description: "Pairing a dataset with its dictionary makes it easier to interpret. This tutorial describes how a module from the ready4use R package can help you to pair a dataset and its dictionary."
 aliases:
 - /docs/framework/use/authoring-data/label-data

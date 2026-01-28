@@ -1,7 +1,7 @@
 ---
 title: "Find themed collections of ready4 modules"
 linkTitle: "Collections"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "Tools from the ready4 R library can help find details about module libraries from a modelling project."
 weight: 91
 tags:
@@ -50,7 +50,7 @@ A table summarising currently available module libraries authored with the [read
 
 ## Use
 
-In the below example we will search for modules from the [readyforwhatsnext model](https://readyforwhatsnext.org/). The source code for these modules all reside in the [ready4-dev GitHub repository](https://github.com/ready4-dev). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
+In the below example we will search for modules from the [readyforwhatsnext model](https://readyforwhatsnext.com/). The source code for these modules all reside in the [ready4-dev GitHub repository](https://github.com/ready4-dev). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
 
 <div class="highlight">
 
@@ -72,7 +72,7 @@ We can use the `print_packages` function to display a HTML summary of the module
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"People"</span><span class='o'>)</span><span class='o'>)</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span>, sections_chr <span class='o'>=</span> <span class='s'>"People"</span><span class='o'>)</span></span>
 </code></pre>
 <table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
@@ -243,7 +243,7 @@ Transform Youth Outcomes to Health Utility Predictions
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"Places"</span><span class='o'>)</span><span class='o'>)</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span>, sections_chr <span class='o'>=</span> <span class='s'>"Places"</span><span class='o'>)</span></span>
 </code></pre>
 <table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>
@@ -314,7 +314,7 @@ Model Spatial Features of Health Systems
 
 <div class="highlight">
 
-<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span> <span class='o'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='nf'>dplyr</span><span class='nf'>::</span><span class='nf'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='o'>(</span><span class='nv'>Section</span> <span class='o'>==</span> <span class='s'>"Programs"</span><span class='o'>)</span><span class='o'>)</span></span>
+<pre class='chroma'><code class='language-r' data-lang='r'><span><span class='nf'><a href='https://ready4-dev.github.io/ready4/reference/print_packages.html'>print_packages</a></span><span class='o'>(</span><span class='nv'>libraries_tb</span>, sections_chr <span class='o'>=</span> <span class='s'>"Programs"</span><span class='o'>)</span></span>
 </code></pre>
 <table class="table table-hover table-condensed" style="color: black; margin-left: auto; margin-right: auto;">
 <thead>

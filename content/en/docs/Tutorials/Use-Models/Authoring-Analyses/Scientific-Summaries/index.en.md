@@ -1,7 +1,7 @@
 ---
 title: "Authoring scientific manuscripts"
 linkTitle: "Reporting"
-date: "2024-06-11"
+date: "2026-01-28"
 description: "Tools from the ready4show R package support authoring of scientific summaries of analyses with ready4."
 weight: 92
 aliases:
@@ -185,7 +185,8 @@ We can add details on each author by repeated calls to the `renewSlot` method.
 <span>            qualifications_chr <span class='o'>=</span> <span class='s'>"MSc, PhD"</span>,</span>
 <span>            institute_chr <span class='o'>=</span> <span class='s'>"Institute_C, Institute_B"</span>,</span>
 <span>            sequence_int <span class='o'>=</span> <span class='m'>2</span>,</span>
-<span>            email_chr <span class='o'>=</span> <span class='s'>"fake_email@unreal_institute.com"</span><span class='o'>)</span> </span></code></pre>
+<span>            email_chr <span class='o'>=</span> <span class='s'>"fake_email@unreal_institute.com"</span><span class='o'>)</span> </span>
+<span></span></code></pre>
 
 </div>
 

@@ -1,7 +1,7 @@
 ---
 title: "Why ready4 is object oriented"
 linkTitle: "Paradigm"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "ready4 uses an object oriented programming (OOP) paradigm to implement computational models."
 weight: 61
 aliases:
@@ -49,7 +49,7 @@ The practical utility and ease of use of computational health economic models ar
 
 ### Modular Computational Models
 
-Two commonly noted features of OOP - encapsulation and inheritance are particularly useful when developing [modular computational health economic models](https://www.ready4-dev.com/docs/framework/implementation/modularity/).
+Two commonly noted features of OOP - encapsulation and inheritance are particularly useful when developing [modular computational health economic models](https://www.ready4-dev.com/docs/tutorials/develop-models/modularity/).
 
 #### Encapsulation
 

@@ -1,7 +1,7 @@
 ---
 title: "Commands for using model modules"
 linkTitle: "Commands"
-date: "2024-06-11"
+date: "2026-01-28"
 description: "Apply model modules using a simple and consistent syntax."
 weight: 91
 tags:
@@ -50,7 +50,7 @@ To be used in health economic analyses, model modules need to be called using a 
 
 ## Use
 
-A table that itemises `ready4` commands along with examples of how these commands are used can be ingested from a periodically updated database using `get_methods_tb`. In the below example we will search for examples of where that syntax has been used by modules from the [readyforwhatsnext model](https://readyforwhatsnext.org/). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
+A table that itemises `ready4` commands along with examples of how these commands are used can be ingested from a periodically updated database using `get_methods_tb`. In the below example we will search for examples of where that syntax has been used by modules from the [readyforwhatsnext model](https://readyforwhatsnext.com/). The value supplied to the `gh_repo_1L_chr` argument specifies the repository in which a dataset of readyforwhatsnext module libraries is stored.
 
 <div class="highlight">
 

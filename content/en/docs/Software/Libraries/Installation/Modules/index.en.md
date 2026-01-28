@@ -2,7 +2,7 @@
 title: Installing ready4 computational model modules
 linkTitle: "Modules"
 author: Matthew Hamilton
-date: "2024-06-13"
+date: "2026-01-28"
 description: To implement a modelling analysis with ready4 you need to install computational model modules.
 slug: Modules
 weight: 3

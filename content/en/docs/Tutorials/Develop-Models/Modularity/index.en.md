@@ -1,7 +1,7 @@
 ---
 title: "Template module"
 linkTitle: "Template"
-date: "2024-06-13"
+date: "2026-01-28"
 description: "ready4 provides a template to facilitate modular implementation of health economic models."
 weight: 1
 aliases:
