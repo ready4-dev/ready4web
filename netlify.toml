@@ -11,162 +11,162 @@
 
 [[redirects]]
 from = "/blog/2023/11/30/posters-dataset-releases/"
-to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/"
+to = "https://readyforwhatsnext.com/blog/2024/01/25/posters-dataset-releases/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/releases/libraries/module-libraries/module-libraries/"
-to = "https://readyforwhatsnext.org/blog/releases/libraries/"
+to = "https://readyforwhatsnext.com/blog/releases/libraries/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/releases/executables/" 
-to = "https://readyforwhatsnext.org/blog/releases/executables/"
+to = "https://readyforwhatsnext.com/blog/releases/executables/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2023/11/30/subroutine-releases/" 
-to = "https://readyforwhatsnext.org/blog/2024/01/25/subroutine-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/subroutine-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2023/11/30/programs-releases/" 
-to = "https://readyforwhatsnext.org/blog/2024/01/25/programs-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/programs-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/releases/datasets/instructional-datasets/"
-to = "https://readyforwhatsnext.org/blog/2024/01/25/toy-synthetic-datasets-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/toy-synthetic-datasets-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/releases/datasets/model-data/"
-to = "https://readyforwhatsnext.org/blog/releases/datasets/model-data/"
+to = "https://readyforwhatsnext.com/blog/releases/datasets/model-data/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2023/11/30/datasets-for-modelling-places-releases/"
-to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-places-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/datasets-for-modelling-places-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2023/11/30/datasets-for-modelling-people-releases/"
-to = "https://readyforwhatsnext.org/blog/2024/01/25/datasets-for-modelling-people-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/datasets-for-modelling-people-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/releases/datasets/posters-datasets/"
-to = "https://readyforwhatsnext.org/blog/2024/01/25/posters-dataset-releases/" 
+to = "https://readyforwhatsnext.com/blog/2024/01/25/posters-dataset-releases/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/"
-to = "https://readyforwhatsnext.org/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/" 
+to = "https://readyforwhatsnext.com/blog/2021/02/12/readyforwhatsnext-conference-posters-now-available/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/"
-to = "https://readyforwhatsnext.org/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/" 
+to = "https://readyforwhatsnext.com/blog/2021/02/18/modelling-the-mental-health-impacts-of-covid-19/" 
 status = 301
 force = true
 
 [[redirects]]
 from = "/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/"
-to = "https://readyforwhatsnext.org/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/" 
+to = "https://readyforwhatsnext.com/blog/2021/07/14/predicting-quality-adjusted-life-years-in-young-people-attending-primary-mental-health-services/" 
 status = 301
 force = true
   
 [[redirects]]
 from = "/docs/contribution-guidelines/*"
-to = "https://readyforwhatsnext.org/docs/contribution-guidelines/:splat"
+to = "https://readyforwhatsnext.com/docs/contribution-guidelines/:splat"
 status = 301
 force = true
 
 [[redirects]]
 from = "/docs/software/executables/"
-to = "https://readyforwhatsnext.org/docs/model/analyses/"
+to = "https://readyforwhatsnext.com/docs/model/analyses/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/docs/software/executables/programs/"
-to = "https://readyforwhatsnext.org/docs/model/analyses/find/"
+to = "https://readyforwhatsnext.com/docs/model/analyses/find/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/docs/software/executables/subroutines/"
-to = "https://readyforwhatsnext.org/docs/model/reporting/"
+to = "https://readyforwhatsnext.com/docs/model/reporting/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/software/libraries/types/module/"
-to = "https://readyforwhatsnext.org/docs/model/modules/finding/libraries/"
+to = "https://readyforwhatsnext.com/docs/model/modules/finding/libraries/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/software/user-interfaces/"
-to = "https://readyforwhatsnext.org/docs/model/decision-aids/"
+to = "https://readyforwhatsnext.com/docs/model/decision-aids/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model"
-to = "https://readyforwhatsnext.org/docs/model/"
+to = "https://readyforwhatsnext.com/docs/model/"
 status = 301
 force = true
 
 [[redirects]]
 from = "/docs/model/analyses/"
-to = "https://readyforwhatsnext.org/docs/model/analyses/"
+to = "https://readyforwhatsnext.com/docs/model/analyses/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/analyses/decision-aids/*"
-to = "https://readyforwhatsnext.org/docs/model/decision-aids/:splat"
+to = "https://readyforwhatsnext.com/docs/model/decision-aids/:splat"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/analyses/replication-code/*"
-to = "https://readyforwhatsnext.org/docs/model/analyses/replication-code/:splat"
+to = "https://readyforwhatsnext.com/docs/model/analyses/replication-code/:splat"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/analyses/reporting-templates/"
-to = "https://readyforwhatsnext.org/docs/model/reporting/"
+to = "https://readyforwhatsnext.com/docs/model/reporting/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/datasets/*"
-to = "https://readyforwhatsnext.org/docs/model/datasets/:splat"
+to = "https://readyforwhatsnext.com/docs/model/datasets/:splat"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/modules/finding-modules/"
-to = "https://readyforwhatsnext.org/docs/model/modules/finding/individual/"
+to = "https://readyforwhatsnext.com/docs/model/modules/finding/individual/"
 status = 301
 force = true
  
 [[redirects]]
 from = "/docs/model/modules/*"
-to = "https://readyforwhatsnext.org/docs/model/modules/:splat"
+to = "https://readyforwhatsnext.com/docs/model/modules/:splat"
 status = 301
 force = true
