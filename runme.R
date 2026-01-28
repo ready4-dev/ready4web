@@ -1,5 +1,5 @@
-# Run each time an RMD is changed prior to commit. [IGNORE THIS]
-# blogdown::build_site(run_hugo = F, build_rmd =T)
+# Run each time an RMD is changed prior to commit.
+# blogdown::build_site(run_hugo = F, build_rmd =T)  [IGNORE THIS]
 #source("R/Functions.R")
 library(ready4)
 library(hugodown)
